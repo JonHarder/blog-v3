@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=55042&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>What Makes a Good Git Commit - My New Hugo Site</title><meta name="Description" content="This is my cool site"><meta property="og:url" content="http://localhost:55042/posts/git_commit/">
+  <meta property="og:site_name" content="My New Hugo Site">
+  <meta property="og:title" content="What Makes a Good Git Commit">
+  <meta property="og:description" content="Introduction I want to kick off this series of articles on git with the humble commit. Commits are the basic unit of change in your codebase. Like an atom, you cannot break things down any further than a commit1. Git automatically keeps track of which files were changed, who changed them, and when. It is up to YOU, however, to decide what information is added to that commit to give context to others or your future self about the changes.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-08-13T16:00:00-06:00">
+    <meta property="article:modified_time" content="2024-08-13T16:00:00-06:00">
+    <meta property="article:tag" content="How-To">
+    <meta property="article:tag" content="Git">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="What Makes a Good Git Commit">
+  <meta name="twitter:description" content="Introduction I want to kick off this series of articles on git with the humble commit. Commits are the basic unit of change in your codebase. Like an atom, you cannot break things down any further than a commit1. Git automatically keeps track of which files were changed, who changed them, and when. It is up to YOU, however, to decide what information is added to that commit to give context to others or your future self about the changes.">
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:55042/posts/git_commit/" /><link rel="prev" href="http://localhost:55042/posts/zoxide/" /><link rel="next" href="http://localhost:55042/posts/zellij/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "What Makes a Good Git Commit",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:55042\/posts\/git_commit\/"
+        },"genre": "posts","keywords": "how-to, git","wordcount":  2084 ,
+        "url": "http:\/\/localhost:55042\/posts\/git_commit\/","datePublished": "2024-08-13T16:00:00-06:00","dateModified": "2024-08-13T16:00:00-06:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "xxxx"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="My New Hugo Site">My cool site</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> Posts </a><a class="menu-item" href="/tags"> Tags </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="My New Hugo Site">My cool site</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts" title="">Posts</a><a class="menu-item" href="/tags" title="">Tags</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">What Makes a Good Git Commit</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>xxxx</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-13">2024-08-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2084 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;10 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-makes-a-good-commit-message">What makes a good commit message</a>
+      <ul>
+        <li><a href="#the-message-heading">The message heading</a></li>
+        <li><a href="#the-message-body">The message body</a></li>
+      </ul>
+    </li>
+    <li><a href="#properties-of-a-good-commit-content">Properties of a good commit (content)</a>
+      <ul>
+        <li><a href="#logical">Logical</a></li>
+        <li><a href="#small">Small</a></li>
+        <li><a href="#self-contained">Self-contained</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-show-your-work-analogy">The &ldquo;Show Your Work&rdquo; Analogy</a></li>
+    <li><a href="#opening-pandoras-box">Opening Pandora&rsquo;s Box</a></li>
+    <li><a href="#sources">Sources</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="introduction">Introduction</h1>
+<p>I want to kick off this series of articles on git with the humble commit.
+Commits are the basic unit of change in your codebase. Like an atom, you cannot
+break things down any further than a commit<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. Git automatically keeps track
+of which files were changed, who changed them, and when. It is up to YOU,
+however, to decide what information is added to that commit to give context to
+others or your future self about the changes.</p>
+<p>To expand on this, let&rsquo;s break down the two (user definable) attributes of a
+commit. When we make a commit, we get to say what <strong>message</strong> is attached to it,
+and what <strong>changes</strong> to include. We&rsquo;ll start with what makes a good commit
+message, and then move on to considering how to structure your changes by
+deciding which file changes should be included in one commit vs another.</p>
+<h2 id="what-makes-a-good-commit-message">What makes a good commit message</h2>
+<h3 id="the-message-heading">The message heading</h3>
+<p>Writing a commit message is a time for you to step back and <em>think</em> about the
+changes you&rsquo;ve made. What problem were you trying to address by making these
+changes? What is expected outcome in the application as a result of those
+changes? Git can tell you via the diff that you
+<em><code>made a function called 'get_latest_foo()' in foo_handler.rs</code></em>, only the mind
+that wrote the function can say <em>why</em> you wrote <code>get_latest_foo()</code>.</p>
+<p>If you&rsquo;ve ever tried to debug a problem and walk through the commit history to
+find when a bug was introduced, you may have experienced the pain of lousy
+commit messages. <code>Changed some stuff</code> does not spark joy. <code>Updated Controller</code>,
+though slightly more descriptive, still does not help the reader to understand
+anything about the change beyond <em>what</em> was changed.</p>
+<p>It is critical to recognize that commits are more than just a way to back up
+your work onto a remote server (e.g. GitHub). Commits are a developer&rsquo;s first
+and most valuable source of clues as to why the application is behaving the way
+it is. Their efforts can either be aided by a helpful commit message like
+<em><code>Move foo retrieval logic to dedicated handler</code></em> or hindered by a message like
+<em><code>wip updates</code></em>.</p>
+<p>The header should be short (~50 characters according to Linus Torvolds, the
+creator of git) though this is not a hard requirement. It should be short enough
+to grok quickly, and state in the imperative<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> mood what was changed.</p>
+<h3 id="the-message-body">The message body</h3>
+<p>If you have a good heading on your commit message, you&rsquo;re good right? One could
+argue this the header (the first line of the commit message) is all that is
+necessary in a commit message, after all, the first line is all you would see in
+the standard git log, but the body of a commit provides a great place to
+describe in full prose the intent of your change.</p>
+<p>When adding a body, you are required to have at least (but preferably only) one
+blank line between the header and the body:</p>
+<pre><code>This is the heading
+
+This is the body of the message. I'm going to put much more content
+here since I have more room here.
+</code></pre>
+<p>This is the place for you to provide all the essential context around why this
+change was made. Why was this change necessary? Is this being done in
+preparation for any future changes? What is the practical effect on the
+application/system as a result of this change? If the changes you made seem a
+bit odd at first glance (for example, not re-using existing functionality that
+accomplishes your task but instead implementing it from scratch) this is a great
+place to explain why the obvious approach was not suitable and why this approach
+is better.</p>
+<p>You are basically trying to mind read your (or your coworker&rsquo;s) future mind when
+they are looking back at your code. This may seem like an impossible task, but
+with practice as well as seeing examples of great commits (and even not-so-great
+commits) you will get a sense of what information is useful.</p>
+<p>Lastly when you have useful commit messages, this information will be used by
+your code review system by pre-populating the review message. This saves time by
+adding the necessary context you would have added to the pull request anyway,
+<em>and</em> has the added benefit of persisting beyond the pull request because it
+lives in your code.</p>
+<h2 id="properties-of-a-good-commit-content">Properties of a good commit (content)</h2>
+<p>Now that we&rsquo;ve covered good commit messages, we&rsquo;ll turn our attention to what
+qualities make for a good commit content. The commit message gives the viewer
+helpful context as to why a change was made, but <em>what</em> changes go into a commit
+are important to consider as well.</p>
+<p>Many of the following qualities are born out of the necessity in software
+development to inspect commits to troubleshoot a bug, mainly by reverting the
+code base back to some previous point in its history or to identify when and why
+a change was introduced. This has implications for how to craft both the commit
+message and the contents of the commit. Because commit messages have already
+been handled above, we will focus just on the ways that commit contents affect
+these requirements.</p>
+<h3 id="logical">Logical</h3>
+<p>Similar to the single responsibility principle<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>, commits should contain
+<em>logically</em> related changes. If you are trying to determine if a particular
+commit broke a feature, it can be challenging to test when an unrelated change
+in that commit causes other problems that cannot be pulled apart. A commit
+containing changes to your data model should not also contain changes to fix a
+bug in the UI.<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></p>
+<p>To get a sense of what this looks like, when reviewing a pull request, try to
+take a look at the commits within the branch (if you use branch-based
+development) one at a time, moving forward through them to see how the feature
+was assembled in each step. If the author was disciplined in the creation of
+their commits, you will get to see their &ldquo;proof of work&rdquo;<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup> in how they added
+each part of the feature.</p>
+<p>If the author was NOT disciplined (or does not yet know the value of commits
+that follow these principles) you will instead become more confused as you try
+to follow the flow of changes where one commit introduces a change, the next
+commit modifies that change, and a third removes the change entirely. In these
+cases you will be better off going back to just looking at the changes made at
+the branch level rather than looking at each commit individually.<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup></p>
+<h3 id="small">Small</h3>
+<p>Commits should be <em>small</em>. The definition of <em>small</em> can be somewhat hard to
+define, but generally a developer will know a <strong>big</strong> commit when he or she sees
+one. This comes back to the ultimate goal of making commits understandable by
+someone who is reviewing them. This review could be in a formal &ldquo;code review&rdquo;
+sense in the form of a pull request, or in a triage sense where someone is
+trying to find the source of a problem in the system by looking at the git log.
+Our brains can only hold so much in working memory at a time, and anything
+beyond it drastically reduces comprehension.</p>
+<p>If you&rsquo;ve ever been asked to review a pull request with 50 files changed, you
+have an idea of the difficulty of reviewing big commits.</p>
+<h3 id="self-contained">Self-contained</h3>
+<p>Closely related to the above is the quality of being self-contained. A commit
+should not (baring undiscovered bugs) leave the system in a broken or otherwise
+inoperable state.</p>
+<p>Note that this is not the same as the notion of being complete. A commit which
+introduces a new function that is never called is self contained, even though
+the feature that will eventually utilize that function is not complete. You
+(hopefully) should not break anything by adding a new function to a code base,
+in fact, it&rsquo;s even deployable!</p>
+<p>This may feel counter-intuitive, but this quality helps to leave the code base
+in a deployable state at all times. When every commit is self contained, you can
+test your work in smaller chunks, and when you can do that, you can pinpoint the
+exact commit that introduced an issue. On top of that, if your commits are also
+<a href="#Small" rel="">small</a> then the work of understanding <em>why</em> that commit broke things
+should leave you investigating a very small number of lines.</p>
+<p>As you can see, this quality also entails that your change is testable and
+buildable. But what if you realize part way through development that a prior
+change (commit) did not behave the way you thought it would, or if you come to
+realize you could solve the problem in a more efficient way than you initially
+realized. How then would you create a commit that modifies your previous work
+AND follows these aforementioned qualities?</p>
+<h2 id="the-show-your-work-analogy">The &ldquo;Show Your Work&rdquo; Analogy</h2>
+<p>If you remember back to any math class, you&rsquo;ll recall that providing the aswer
+to a problem, even if you got the right answer, was not enough. You also needed
+to <em>show your work</em>, meaning a logical progression of changes you need to make
+to an equation, one after another, in order to arrive at the correct conclusion.</p>
+<p>And as for writing software, &ldquo;showing your work&rdquo; naturally leads to the above
+principles. Steps are small, they are logical, they are isolated. By the same
+analogy, having changes in one commit removed in the next commit would not make
+sense in the &ldquo;show your work&rdquo; style of commit construction. You would not add 50
+to both sides of the equation in one step, and then remove 50 from both sides in
+the next step.</p>
+<p>Another anology that helps describe the <em>purpose</em> of commits and commit history
+(beyond a remote backup of your code) is the idea of giving directions to a
+friend to somewhere you just found. You may not have known exactly where to go
+at first, maybe you took a turn too late and needed to U-turn. Maybe you took a
+wrong turn entirely and needed to retrace your steps to get back on track. It
+happens. BUT when you are giving directions to your friend, you wouldn&rsquo;t give
+them the EXACT steps you took to get there, you would give them the cleaned-up,
+wrong-turns-removed version that gets them straight there.</p>
+<p>Now this doesn&rsquo;t mean you need to write perfect code on the first try. You
+<em>will</em> take wrong turns; you will need to backtrack and throw away code. So how
+do you give your friend (i.e. your commit history) a clean version of what you
+wrote?</p>
+<p>The answer is&hellip; <strong>changing history</strong> 😱</p>
+<h2 id="opening-pandoras-box">Opening Pandora&rsquo;s Box</h2>
+<p>Much like bottom posting and trimming in email<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>, the idea of editing your
+commit history seems taboo to many and even unheard of depending on your
+background, though it was a very commonly adopted practice early on in each of
+these technologies&rsquo; histories.</p>
+<p>In future articles of this git series, we will discuss editing git commit
+history as well as when you should make use of this feature and even more
+importantly, when you <strong>shouldn&rsquo;t</strong> use this feature.</p>
+<h2 id="sources">Sources</h2>
+<ul>
+<li>Much of what is endorsed here comes from Drew DePonte in this
+<a href="https://drewdeponte.com/blog/how-we-should-be-using-git/" target="_blank" rel="noopener noreffer ">article</a>. His
+thoughts are themselves a reproduction of the Linux Kernel development
+standards. Linux in maintained by Linus, the creator of git, who created git
+to manage kernel development.</li>
+</ul>
+<h1 id="footnotes">Footnotes</h1>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>But also like the atom, this isn&rsquo;t <em>quite</em> true. You can break commits
+apart just like you can break atoms apart into photons, electrons, neutrons,
+etc. However, much like splitting the atom, this is not a task undertaken
+lightly; some caution and experience is required if you don&rsquo;t want to end up
+destroying the universe. We will discuss how to do so in a later post when
+we get to rebases.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>The imperative mood indicates a command to be followed. Pretend you&rsquo;re
+talking to a robot minion. If you wanted to give a command to your minion,
+you would phrase it, &ldquo;Cache the api key lookup in the auth controller,&rdquo; not
+&ldquo;I am caching the api key lookup,&rdquo; or &ldquo;The api key lookup will be cached,&rdquo;
+&ldquo;Can you cache the api key lookup?&rdquo;&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://en.wikipedia.org/wiki/Single-responsibility_principle" target="_blank" rel="noopener noreffer ">https://en.wikipedia.org/wiki/Single-responsibility_principle</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>You should definitely fix that bug&hellip;just put it in a separate commit with
+a message that describes the bug fix.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>Picture how you work out a complicated math problem one step at a time by
+transforming your initial problem into a state where you can ultimately
+solve it.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>But you will perhaps gain a greater appreciation of well constructed
+commits.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p><a href="https://en.wikipedia.org/wiki/Posting_style" target="_blank" rel="noopener noreffer ">https://en.wikipedia.org/wiki/Posting_style</a>&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2024-08-13</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="http://localhost:55042/posts/git_commit/" data-title="What Makes a Good Git Commit" data-hashtags="how-to,git"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Threads" data-sharer="threads" data-url="http://localhost:55042/posts/git_commit/" data-title="What Makes a Good Git Commit"><i class="fab fa-threads fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:55042/posts/git_commit/" data-hashtag="how-to"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:55042/posts/git_commit/" data-title="What Makes a Good Git Commit"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://localhost:55042/posts/git_commit/" data-title="What Makes a Good Git Commit"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://localhost:55042/posts/git_commit/" data-title="What Makes a Good Git Commit"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Diaspora" data-sharer="diaspora" data-url="http://localhost:55042/posts/git_commit/" data-title="What Makes a Good Git Commit" data-description=""><i class="fab fa-diaspora fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=http%3a%2f%2flocalhost%3a55042%2fposts%2fgit_commit%2f&amp;text=What%20Makes%20a%20Good%20Git%20Commit" target="_blank" title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/how-to/">How-To</a>,&nbsp;<a href="/tags/git/">Git</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/zoxide/" class="prev" rel="prev" title="zoxide"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>zoxide</a>
+            <a href="/posts/zellij/" class="next" rel="next" title="Zellij">Zellij<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.140.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">xxxx</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script>window.config={"comment":{}};</script><script src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=55042&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>jq - My New Hugo Site</title><meta name="Description" content="This is my cool site"><meta property="og:url" content="http://localhost:55042/posts/jq/">
+  <meta property="og:site_name" content="My New Hugo Site">
+  <meta property="og:title" content="jq">
+  <meta property="og:description" content="Overview jq is a utility to search through, filter, and modify json content.1 You can use it to find a value in a deeply nested object, filter to only objects which contain a field, map the inner contents of arbitrary data into a flat list, and much much more.
+On mac, it can be installed through homebrew:
+brew install jq As an introductory example, say you have the following json input:2">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-12-08T16:00:00-06:00">
+    <meta property="article:modified_time" content="2023-12-08T16:00:00-06:00">
+    <meta property="article:tag" content="How-To">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="jq">
+  <meta name="twitter:description" content="Overview jq is a utility to search through, filter, and modify json content.1 You can use it to find a value in a deeply nested object, filter to only objects which contain a field, map the inner contents of arbitrary data into a flat list, and much much more.
+On mac, it can be installed through homebrew:
+brew install jq As an introductory example, say you have the following json input:2">
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:55042/posts/jq/" /><link rel="prev" href="http://localhost:55042/posts/nb/" /><link rel="next" href="http://localhost:55042/posts/fzf/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "jq",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:55042\/posts\/jq\/"
+        },"genre": "posts","keywords": "how-to","wordcount":  1412 ,
+        "url": "http:\/\/localhost:55042\/posts\/jq\/","datePublished": "2023-12-08T16:00:00-06:00","dateModified": "2023-12-08T16:00:00-06:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "xxxx"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="My New Hugo Site">My cool site</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> Posts </a><a class="menu-item" href="/tags"> Tags </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="My New Hugo Site">My cool site</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts" title="">Posts</a><a class="menu-item" href="/tags" title="">Tags</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">jq</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>xxxx</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-08">2023-12-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1412 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;7 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#basic-filters">Basic filters</a></li>
+    <li><a href="#selection">Selection</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="overview">Overview</h1>
+<p><a href="https://jqlang.github.io/jq/" target="_blank" rel="noopener noreffer ">jq</a> is a utility to search through, filter, and
+modify <code>json</code> content.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> You can use it to find a value in a deeply nested
+object, filter to only objects which contain a field, map the inner contents of
+arbitrary data into a flat list, and much much more.</p>
+<p>On mac, it can be installed through homebrew:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install jq</span></span></code></pre></div></div>
+<p>As an introductory example, say you have the following json input:<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;{&#34;Instances&#34;: [{&#34;InstanceId&#34;: &#34;sdb3871osdhv89044&#34;, &#34;Name&#34;: &#34;server0&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#34;CreationDate&#34;: &#34;2021-06-20T03:50:34&#34;},{&#34;InstanceId&#34;: &#34;abc123eassa12874&#34;, &#34;Name&#34;: &#34;server1&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#34;CreationDate&#34;: &#34;2023-11-01T15:13:06&#34;}, {&#34;InstanceId&#34;: &#34;aes54iasg41226c&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#34;Name&#34;: &#34;server2&#34;, &#34;CreationDate&#34;: &#34;2023-11-02T12:07:54&#34;}, {&#34;InstanceId&#34;:
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#34;flng45799saooh987&#34;, &#34;Name&#34;: &#34;server3&#34;, &#34;CreationDate&#34;: &#34;2023-11-06T21:45:27&#34;}], &#34;ResponseCode&#34;: 200}&#39;</span> <span class="p">|</span> tee ~/test.json</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>{&#34;Instances&#34;: [{&#34;InstanceId&#34;: &#34;sdb3871osdhv89044&#34;, &#34;Name&#34;: &#34;server0&#34;,
+&#34;CreationDate&#34;: &#34;2021-06-20T03:50:34&#34;},{&#34;InstanceId&#34;: &#34;abc123eassa12874&#34;, &#34;Name&#34;: &#34;server1&#34;,
+&#34;CreationDate&#34;: &#34;2023-11-01T15:13:06&#34;}, {&#34;InstanceId&#34;: &#34;aes54iasg41226c&#34;,
+&#34;Name&#34;: &#34;server2&#34;, &#34;CreationDate&#34;: &#34;2023-11-02T12:07:54&#34;}, {&#34;InstanceId&#34;:
+&#34;flng45799saooh987&#34;, &#34;Name&#34;: &#34;server3&#34;, &#34;CreationDate&#34;: &#34;2023-11-06T21:45:27&#34;}], &#34;ResponseCode&#34;: 200}</code></pre></div>
+<p>Jq with no additional arguments will parse, format, and highlight incoming json:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/test.json <span class="p">|</span> jq</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Instances&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;sdb3871osdhv89044&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2021-06-20T03:50:34&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;abc123eassa12874&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-01T15:13:06&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;aes54iasg41226c&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-02T12:07:54&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;flng45799saooh987&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-06T21:45:27&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;ResponseCode&#34;</span><span class="p">:</span> <span class="mi">200</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<h1 id="filters">Filters</h1>
+<h2 id="basic-filters">Basic filters</h2>
+<p>Basic filters can be applied in order to grab specific fields from your input:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/test.json <span class="p">|</span> jq <span class="s1">&#39;.Instances&#39;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;sdb3871osdhv89044&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2021-06-20T03:50:34&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;abc123eassa12874&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-01T15:13:06&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;aes54iasg41226c&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-02T12:07:54&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;flng45799saooh987&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-06T21:45:27&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span></span></span></code></pre></div></div>
+<p>You can nest filters to retrieve deeply nested data from your input too:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/test.json <span class="p">|</span> jq <span class="s1">&#39;.Instances[1].Name&#39;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;server1&#34;</span></span></span></code></pre></div></div>
+<p>Array access works as expected with zero-based integer indexing. In addition to
+simply getting date from input, you can create arbitrary new objects by wrapping
+your filters in an object:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/test.json <span class="p">|</span> jq <span class="s1">&#39;{&#34;ServerName&#34;: .Instances[1].Name, &#34;Created&#34;: .Instances[1].CreationDate }&#39;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;ServerName&#34;</span><span class="p">:</span> <span class="s2">&#34;server1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Created&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-01T15:13:06&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>You can link multiple filters and transformations through the pipe <code>|</code> operator.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/test.json <span class="p">|</span> jq <span class="s1">&#39;.Instances[1] | { &#34;ServerName&#34;: .Name, &#34;Created&#34;: .CreationDate }&#39;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;ServerName&#34;</span><span class="p">:</span> <span class="s2">&#34;server1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Created&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-01T15:13:06&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>Instead of selecting only an individual record in <code>Instances</code>, you can execute a
+filter over <em>all</em> instances by omitting the offset to the array access.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/test.json <span class="p">|</span> jq <span class="s1">&#39;.Instances[] | { &#34;ServerName&#34;: .Name, &#34;Created&#34;: .CreationDate }&#39;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;ServerName&#34;</span><span class="p">:</span> <span class="s2">&#34;server0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Created&#34;</span><span class="p">:</span> <span class="s2">&#34;2021-06-20T03:50:34&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;ServerName&#34;</span><span class="p">:</span> <span class="s2">&#34;server1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Created&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-01T15:13:06&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;ServerName&#34;</span><span class="p">:</span> <span class="s2">&#34;server2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Created&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-02T12:07:54&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;ServerName&#34;</span><span class="p">:</span> <span class="s2">&#34;server3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Created&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-06T21:45:27&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>The results of our filters are streamed one at a time through each pipelined
+expression. You can see this by looking at the output; each object is the result
+of the second filter (which creates a new object). Further filters in a
+subsequent pipeline would work with the new object we created (with keys:
+<code>ServerName</code> and <code>Created</code>).</p>
+<p>We can collect the results of all the expressions in the stream by just wrapping
+it in an array, similar to how we created the object above.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/test.json <span class="p">|</span> jq <span class="s1">&#39;[ .Instances[] | { &#34;ServerName&#34;: .Name, &#34;Created&#34;: .CreationDate } ]&#39;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ServerName&#34;</span><span class="p">:</span> <span class="s2">&#34;server0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Created&#34;</span><span class="p">:</span> <span class="s2">&#34;2021-06-20T03:50:34&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ServerName&#34;</span><span class="p">:</span> <span class="s2">&#34;server1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Created&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-01T15:13:06&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ServerName&#34;</span><span class="p">:</span> <span class="s2">&#34;server2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Created&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-02T12:07:54&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ServerName&#34;</span><span class="p">:</span> <span class="s2">&#34;server3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Created&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-06T21:45:27&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span></span></span></code></pre></div></div>
+<h2 id="selection">Selection</h2>
+<p>Often you want to restrict the results not (only) to certain fields of some json
+object, but to fields matching some criteria. The jq filter <code>select</code>
+accomplishes this task. Say we wanted to filter instances to only those which
+were created on or after November third:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/test.json <span class="p">|</span> jq <span class="s1">&#39;.Instances[] | select(.CreationDate &gt; &#34;2023-11-03&#34;)&#39;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;flng45799saooh987&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-06T21:45:27&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>This can be useful as well on simpler data as well. If given a list of numbers,
+you can filter them using <code>select</code>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;[1, 2, 3, 4]&#39;</span> <span class="p">|</span> jq <span class="s1">&#39;map(select(. &gt; 2))&#39;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span></span></span></code></pre></div></div>
+<p><em>NOTE</em>: <code>map</code> is just another way to execute a filter on every element of a
+list, you&rsquo;ve already seen this presented anonter way: <code>[ .[] | select(. &gt; 2) ]</code>
+(e.g. create an array <code>[</code> from the generated stream of items <code>.[]</code> from which
+<code>|</code> only elements that are <code>select(</code> greater than 2 <code>. &gt; 2</code> are retained)</p>
+<h1 id="modifying-objects">Modifying objects</h1>
+<p>If there&rsquo;s a need to transform your data by adding fields, <code>+</code> is more than up
+to the task. In this case I don&rsquo;t want to filter which instances are deemed
+&ldquo;old&rdquo;, instead, I just want a field to indicate <em>if</em> it is old.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/test.json <span class="p">|</span> jq <span class="s1">&#39;.Instances[] | . + { IsSuperOld: (.CreationDate &lt; &#34;2022-01-01&#34;) }&#39;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;sdb3871osdhv89044&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2021-06-20T03:50:34&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;IsSuperOld&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;abc123eassa12874&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-01T15:13:06&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;IsSuperOld&#34;</span><span class="p">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;aes54iasg41226c&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-02T12:07:54&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;IsSuperOld&#34;</span><span class="p">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;flng45799saooh987&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-06T21:45:27&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;IsSuperOld&#34;</span><span class="p">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>The above creates a stream of each object in the field <code>Instances</code>, and for
+each, adds to it the field <code>IsSuperOld</code>, setting it to true or false depending
+on if the <code>CreationDate</code> of that instance is older than January 1st, 2022.</p>
+<p>Assignment in jq is very powerful; in this case, we added the new field
+individually onto each element in the stream, but <code>+</code> (along with the other
+assignment operators) can assign values onto a path wich points to <em>multiple</em>
+locations. As an example, we can actually simplify the above query like so:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/test.json <span class="p">|</span> jq <span class="s1">&#39;.Instances[] + { IsSuperOld: (.CreationDate &lt; &#34;2022-01-01&#34;) }&#39;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;sdb3871osdhv89044&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2021-06-20T03:50:34&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;IsSuperOld&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;abc123eassa12874&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-01T15:13:06&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;IsSuperOld&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;aes54iasg41226c&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-02T12:07:54&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;IsSuperOld&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;flng45799saooh987&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-06T21:45:27&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;IsSuperOld&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>This is even more powerful when combined with a reducing filter like select:<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/test.json <span class="p">|</span> jq <span class="s1">&#39;.Instances[] | select(.InstanceId | startswith(&#34;a&#34;) ) |= . + { IsSuperOld: (.CreationDate &lt; &#34;2022-01-01&#34;) }&#39;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;sdb3871osdhv89044&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2021-06-20T03:50:34&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;abc123eassa12874&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-01T15:13:06&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;IsSuperOld&#34;</span><span class="p">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;aes54iasg41226c&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-02T12:07:54&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;IsSuperOld&#34;</span><span class="p">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;flng45799saooh987&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-06T21:45:27&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>Granted these examples are becoming more and more contrived, but let&rsquo;s break
+down what&rsquo;s happening. We want a stream of <code>Instances</code>, and for elements
+selected by the filter <code>.InstanceId | startswith(&quot;a&quot;)</code>, add the field
+<code>IsSuperOld</code> which is set to true if the <code>CreationDate</code> is before <code>2022-01-01</code>.</p>
+<h1 id="custom-functions">Custom functions</h1>
+<p>If you find yourself reusing a particular filter often, it can be helpful reduce
+repitition by storing that filter in one central place. Jq allows this with
+named filters, which is calls
+<a href="https://jqlang.github.io/jq/manual/#defining-functions" target="_blank" rel="noopener noreffer ">functions</a>. In the
+examples above, we could name our &quot;super old&quot; filter to avoid repeating
+ourselves.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/test.json <span class="p">|</span> jq <span class="s1">&#39;def isold: .CreationDate &lt; &#34;2022-01-01&#34;; .Instances[] + { IsSuperOld: isold }&#39;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;sdb3871osdhv89044&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2021-06-20T03:50:34&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;IsSuperOld&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;abc123eassa12874&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-01T15:13:06&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;IsSuperOld&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;aes54iasg41226c&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-02T12:07:54&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;IsSuperOld&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;InstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;flng45799saooh987&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;server3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CreationDate&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-11-06T21:45:27&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;IsSuperOld&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<h1 id="conclusion">Conclusion</h1>
+<p>Like usual, we&rsquo;ve only scratched the surface of what jq can do. If their
+extensive <a href="https://jqlang.github.io/jq/manual/" target="_blank" rel="noopener noreffer ">docs</a> with included examples
+can&rsquo;t help you, chances are there&rsquo;s a stack overflow post from somebody asking
+how to do what you&rsquo;re trying to do.</p>
+<p>I&rsquo;ve personally found it very useful when hacking scripts together which utilize
+the aws cli. Because the result its queries are json, the two make a great team.<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></p>
+<p>Jq does one small job, filter and transform json. Toward this end, it&rsquo;s been
+extremely helpful for putting together small bash scripts without having to
+reach for something heavier like python and the <code>json</code> module. It falls into the
+category of: if you need it, you&rsquo;ll know.</p>
+<h1 id="footnotes">Footnotes</h1>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Many of these examples are taken from jq&rsquo;s
+<a href="https://jqlang.github.io/jq/tutorial/" target="_blank" rel="noopener noreffer ">tutorial</a>. It&rsquo;s fairly short, I
+recommend you read it.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://www.man7.org/linux/man-pages/man1/tee.1.html" target="_blank" rel="noopener noreffer ">tee</a> is used to
+print to stdout as well as send to the provided file.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>This example uses the update assignment operator
+<a href="https://jqlang.github.io/jq/manual/#update-assignment" target="_blank" rel="noopener noreffer ">|=</a> which runs its
+input through the filter on the right, and returns the updated result. This
+differs from plain assignment,
+<a href="https://jqlang.github.io/jq/manual/#plain-assignment" target="_blank" rel="noopener noreffer ">=</a>, which overwrites
+its input with the result of the expression on the right. This is important
+in this case since I still wanted all the instances, not just those selected
+by the <code>startswith</code> filter.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>The AWS cli supports the <code>--query</code> flag, which accepts a json query syntax
+similar to, but not quite exactly compatible with jq called
+<a href="https://jmespath.org" target="_blank" rel="noopener noreffer ">jmespath</a>. This could be a great option for you, but
+I am already familiar with jq and didn&rsquo;t want to learn <em>another</em> json query
+syntax, so I just pipe the results of my aws calls to jq.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-12-08</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="http://localhost:55042/posts/jq/" data-title="jq" data-hashtags="how-to"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Threads" data-sharer="threads" data-url="http://localhost:55042/posts/jq/" data-title="jq"><i class="fab fa-threads fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:55042/posts/jq/" data-hashtag="how-to"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:55042/posts/jq/" data-title="jq"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://localhost:55042/posts/jq/" data-title="jq"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://localhost:55042/posts/jq/" data-title="jq"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Diaspora" data-sharer="diaspora" data-url="http://localhost:55042/posts/jq/" data-title="jq" data-description=""><i class="fab fa-diaspora fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=http%3a%2f%2flocalhost%3a55042%2fposts%2fjq%2f&amp;text=jq" target="_blank" title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/how-to/">How-To</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/nb/" class="prev" rel="prev" title="nb"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>nb</a>
+            <a href="/posts/fzf/" class="next" rel="next" title="fzf">fzf<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.140.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">xxxx</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script>window.config={"comment":{}};</script><script src="/js/theme.min.js"></script></body>
+</html>

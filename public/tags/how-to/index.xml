@@ -1,0 +1,143 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>How-To - Tag - My New Hugo Site</title>
+        <link>http://localhost:55042/tags/how-to/</link>
+        <description>How-To - Tag - My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2025 15:40:00 -0600</lastBuildDate><atom:link href="http://localhost:55042/tags/how-to/" rel="self" type="application/rss+xml" /><item>
+    <title>Git Reset</title>
+    <link>http://localhost:55042/posts/git_reset/</link>
+    <pubDate>Wed, 01 Jan 2025 15:40:00 -0600</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:55042/posts/git_reset/</guid>
+    <description><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>The <a href="/posts/git_commit" rel="">last post</a> in our series on git discussed the structure
+and importance of git commits. Ideally, every commit you make would be clear,
+concise, small, logical, and self-contained. Unfortunately, reality rarely
+allows us to know ahead of time what exactly will end up becoming a perfect
+commit. You may commit the first step in your feature, and come to realize while
+you are working on the next step that your first commit is not quite right. Or
+maybe you notice a simple typo in the work you just committed.</p>]]></description>
+</item>
+<item>
+    <title>What Makes a Good Git Commit</title>
+    <link>http://localhost:55042/posts/git_commit/</link>
+    <pubDate>Tue, 13 Aug 2024 16:00:00 -0600</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:55042/posts/git_commit/</guid>
+    <description><![CDATA[<h1 id="introduction">Introduction</h1>
+<p>I want to kick off this series of articles on git with the humble commit.
+Commits are the basic unit of change in your codebase. Like an atom, you cannot
+break things down any further than a commit<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. Git automatically keeps track
+of which files were changed, who changed them, and when. It is up to YOU,
+however, to decide what information is added to that commit to give context to
+others or your future self about the changes.</p>]]></description>
+</item>
+<item>
+    <title>Intro to Bash Scripting</title>
+    <link>http://localhost:55042/posts/intro_to_bash_scripting/</link>
+    <pubDate>Fri, 22 Dec 2023 16:00:00 -0600</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:55042/posts/intro_to_bash_scripting/</guid>
+    <description><![CDATA[<h1 id="overview">Overview</h1>
+<p>Bash is a (perhaps <em>the</em> ubiquitous) shell. As a member of the POSIX
+interface, bash provides a consistent access point to applications on
+your operating system.</p>
+<p>Because it is all but guaranteed to be installed on any server and
+environment, learning this one interface will ensure you can be
+comfortable interacting with any computer.</p>
+<p>Before we begin, it will be helpful to clear up a few ambiguous terms
+related to command line tools that often come up together. A <em>terminal</em>
+is a desktop application you start which presents you with a <em>command
+line</em> interface, running your chosen <em>shell</em>.</p>]]></description>
+</item>
+<item>
+    <title>jq</title>
+    <link>http://localhost:55042/posts/jq/</link>
+    <pubDate>Fri, 08 Dec 2023 16:00:00 -0600</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:55042/posts/jq/</guid>
+    <description><![CDATA[<h1 id="overview">Overview</h1>
+<p><a href="https://jqlang.github.io/jq/" target="_blank" rel="noopener noreffer ">jq</a> is a utility to search through, filter, and
+modify <code>json</code> content.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> You can use it to find a value in a deeply nested
+object, filter to only objects which contain a field, map the inner contents of
+arbitrary data into a flat list, and much much more.</p>
+<p>On mac, it can be installed through homebrew:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install jq</span></span></code></pre></div></div>
+<p>As an introductory example, say you have the following json input:<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>]]></description>
+</item>
+<item>
+    <title>sed (part 2)</title>
+    <link>http://localhost:55042/posts/sed_part_2/</link>
+    <pubDate>Fri, 17 Nov 2023 16:00:00 -0600</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:55042/posts/sed_part_2/</guid>
+    <description><![CDATA[<h2 id="overview">overview</h2>
+<p><a href="/posts/sed" rel="">last</a> time we discussed the command line utility, <code>sed</code>. as a
+stream editor, <code>sed</code> provides a programmatic way to edit files or streams of
+data. rather than opening up a full-fledged, interactive text editor or ide you
+can reach for <code>sed</code>.</p>
+<p>this is particularily useful when you need to make repetative edits over many
+lines, or only on particular lines. <code>sed</code> is also useful for general purpose use
+cases when viewing parts of files or trimming and cleaning up data.</p>]]></description>
+</item>
+<item>
+    <title>Sed (Part 1)</title>
+    <link>http://localhost:55042/posts/sed/</link>
+    <pubDate>Fri, 10 Nov 2023 16:00:00 -0600</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:55042/posts/sed/</guid>
+    <description><![CDATA[<h2 id="overview">Overview</h2>
+<p><a href="https://man7.org/linux/man-pages/man1/sed.1.html" target="_blank" rel="noopener noreffer ">Sed</a> stands for (s)tream
+(ed)itor and is useful for taking any input you have and modifying it in some
+way before sending it along as output, either to the console or as input to the
+next command in your pipeline. It operates on each line of your input, executing
+some command on each as the input is read.</p>
+<p>Chances are if you&rsquo;ve encountered <code>sed</code> before, it came from some sage linux
+master on stack overflow when providing an answer to a bash scripting question.
+If you&rsquo;ve used <code>sed</code> yourself for some task, it&rsquo;s likely using the <code>substitute</code>
+command to find and replace some search term.</p>]]></description>
+</item>
+<item>
+    <title>Find</title>
+    <link>http://localhost:55042/posts/find/</link>
+    <pubDate>Fri, 03 Nov 2023 16:00:00 -0600</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:55042/posts/find/</guid>
+    <description><![CDATA[<h2 id="overview">Overview</h2>
+<p><a href="https://man7.org/linux/man-pages/man1/find.1.html" target="_blank" rel="noopener noreffer ">Find</a> is a utility to <em>find</em>
+files on your computer given a wide range of search parameters. It will
+recursively walk your filesystem
+(<a href="https://en.wikipedia.org/wiki/Breadth-first_search" target="_blank" rel="noopener noreffer ">breadth-first</a>) and print
+(by default) all filenames that have matched your search terms. Think of it like
+<a href="https://man7.org/linux/man-pages/man1/grep.1.html" target="_blank" rel="noopener noreffer ">grep</a> but for file names
+rather than file contents.</p>
+<p>You can search on a variety of metadata on files, ranging from name, creation
+time, update time, owner, group, size, and type (file, directory, link, socket,
+etc.).</p>]]></description>
+</item>
+<item>
+    <title>Grep</title>
+    <link>http://localhost:55042/posts/grep/</link>
+    <pubDate>Fri, 27 Oct 2023 16:00:00 -0600</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:55042/posts/grep/</guid>
+    <description><![CDATA[<h2 id="overview">Overview</h2>
+<p>Grep is a fundamental part of the command line toolbelt. True to the
+<a href="https://en.wikipedia.org/wiki/Unix_philosophy" target="_blank" rel="noopener noreffer ">Unix philosophy</a>, grep does one
+thing, and does it well. Its job is to search input for a given search pattern
+and print all lines that match. Think of it like <code>Command-f</code> for the
+terminal.</p>
+<p>Its origins date back to the <code>ed</code> text editor. It was a common practice within
+<code>ed</code> to execute the command <code>g/r(egular) e(expression)/p</code>, meaning,
+<code>globally</code> search for lines that match the given <code>regular expression</code> and
+<code>print</code> them. This functionality was so useful, that the name &quot;grep&quot; became
+synonomous with the act of searching files and printing matches, and a
+standalone <code>grep</code> program was born.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>]]></description>
+</item>
+</channel>
+</rss>

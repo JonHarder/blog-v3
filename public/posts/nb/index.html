@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=55042&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>nb - My New Hugo Site</title><meta name="Description" content="This is my cool site"><meta property="og:url" content="http://localhost:55042/posts/nb/">
+  <meta property="og:site_name" content="My New Hugo Site">
+  <meta property="og:title" content="nb">
+  <meta property="og:description" content="Overview nb is a swiss army knife of a note taking tool operated entirely1 in within the command line.
+The nb command is your launch pad for everything note related. Without arguments nb shows you an overview of your existing notes or a quick cheat sheet of common actions if there are no notes.
+Once you’ve created a few notes, nb (without arguments) instead displays all the notes in your current notebook (more on notebooks later)">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-12-01T16:00:00-06:00">
+    <meta property="article:modified_time" content="2023-12-01T16:00:00-06:00">
+    <meta property="article:tag" content="Notes">
+    <meta property="article:tag" content="Review">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="nb">
+  <meta name="twitter:description" content="Overview nb is a swiss army knife of a note taking tool operated entirely1 in within the command line.
+The nb command is your launch pad for everything note related. Without arguments nb shows you an overview of your existing notes or a quick cheat sheet of common actions if there are no notes.
+Once you’ve created a few notes, nb (without arguments) instead displays all the notes in your current notebook (more on notebooks later)">
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:55042/posts/nb/" /><link rel="prev" href="http://localhost:55042/posts/sed_part_2/" /><link rel="next" href="http://localhost:55042/posts/jq/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "nb",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:55042\/posts\/nb\/"
+        },"genre": "posts","keywords": "notes, review","wordcount":  2478 ,
+        "url": "http:\/\/localhost:55042\/posts\/nb\/","datePublished": "2023-12-01T16:00:00-06:00","dateModified": "2023-12-01T16:00:00-06:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "xxxx"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="My New Hugo Site">My cool site</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> Posts </a><a class="menu-item" href="/tags"> Tags </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="My New Hugo Site">My cool site</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts" title="">Posts</a><a class="menu-item" href="/tags" title="">Tags</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">nb</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>xxxx</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2478 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;12 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#creating">Creating</a></li>
+    <li><a href="#titles">Titles</a></li>
+    <li><a href="#tags">Tags</a></li>
+    <li><a href="#viewing">Viewing</a></li>
+    <li><a href="#browse">Browse</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="overview">Overview</h1>
+<p><a href="https://xwmx.github.io/nb" target="_blank" rel="noopener noreffer ">nb</a> is a swiss army knife of a note taking tool
+operated entirely<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> in within the command line.</p>
+<p>The <code>nb</code> command is your launch pad for everything note related. Without
+arguments <code>nb</code> shows you an overview of your existing notes or a quick cheat
+sheet of common actions if there are no notes.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/overview_empty.png"
+        data-srcset="/posts/nb/images/overview_empty.png, /posts/nb/images/overview_empty.png 1.5x, /posts/nb/images/overview_empty.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/overview_empty.png"
+        title="/posts/nb/images/overview_empty.png" width="3556" height="714" /></p>
+<p>Once you&rsquo;ve created a few notes, <code>nb</code> (without arguments) instead displays all
+the notes in your current notebook (more on <a href="#Notebooks" rel="">notebooks</a> later)</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="images//overview_with_notes.png"
+        data-srcset="images//overview_with_notes.png, images//overview_with_notes.png 1.5x, images//overview_with_notes.png 2x"
+        data-sizes="auto"
+        alt="images//overview_with_notes.png"
+        title="images//overview_with_notes.png" /></p>
+<p><code>nb</code> allows for quick jotting down of notes, tasks, bookmarks. In addition, it
+provides the means of organizing your notes so you don&rsquo;t end up with a jumbled
+mess of random thoughts.</p>
+<p>What follows will be a whirlwind tour of the major features mention with some
+practical examples.</p>
+<h1 id="notes">Notes</h1>
+<p>The note. The foundational concept of any note taking system. A good system
+allows for quickly jotting down thoughts, organizing those thoughts into some
+system that aids in note retrieval, and (in my opinion) is flexible enough to be
+adapted to the user&rsquo;s individual preferences in format and structure.</p>
+<h2 id="creating">Creating</h2>
+<p><code>nb</code> hits these marks fairly well. For creating notes, <code>nb</code> is spectacular.
+<code>nb add</code> (or <code>nb a</code>) creates a new note. If ran interactively, it will open up
+your editor of choice (configurable through <code>nb set editor</code>) with a blank note,
+ready to capture whatever thought you have. Ran non-interactively, <code>nb</code> will
+simply create a new note.</p>
+<p><code>nb add &quot;here is my great idea&quot;</code> will create a new note, and add the content you
+provide (either through positional arguments, or through standard input:
+<code>echo hello world | nb add</code>) without ever opening up an editor. This allows for
+extremely quick note entry, meaning it hardly intrudes on whatever you were
+doing when you had your thought.</p>
+<p>Starting with an empty notebook, here&rsquo;s the results of the various forms of note
+entry:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nb add</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>Added: [1] 20231129110012.org</code></pre></div>
+<p>Viewing the current notes with <code>nb</code> now gives us this:</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/add_1.png"
+        data-srcset="/posts/nb/images/add_1.png, /posts/nb/images/add_1.png 1.5x, /posts/nb/images/add_1.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/add_1.png"
+        title="/posts/nb/images/add_1.png" width="706" height="101" /></p>
+<p>Creating a note with content from provided arguments looks like this:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nb add <span class="s2">&#34;A new note&#34;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>Added: [2] 20231129110836.org</code></pre></div>
+<p>And the result:</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/add_2.png"
+        data-srcset="/posts/nb/images/add_2.png, /posts/nb/images/add_2.png 1.5x, /posts/nb/images/add_2.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/add_2.png"
+        title="/posts/nb/images/add_2.png" width="707" height="121" /></p>
+<p>And just to show you that it&rsquo;s possible, I&rsquo;ll create a note through a pipeline:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> hello from a pipeline <span class="p">|</span> nb add</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>Added: [3] 20231129111327.org</code></pre></div>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="images//add_3.png"
+        data-srcset="images//add_3.png, images//add_3.png 1.5x, images//add_3.png 2x"
+        data-sizes="auto"
+        alt="images//add_3.png"
+        title="images//add_3.png" /></p>
+<h2 id="titles">Titles</h2>
+<p>The notes created so far do not have a title, so <code>nb</code> has just been naming the
+note files with a timestamp and displaying the first line of content to help
+provide context about the note.</p>
+<p><code>nb</code> provides support for note titles, using the <code>--title</code> flag when creating
+the note.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nb add <span class="s2">&#34;This is the content of the note&#34;</span> --title <span class="s2">&#34;A Note With a Title&#34;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>Added: [4] a_note_with_a_title.org &#34;A Note With a Title&#34;</code></pre></div>
+<p>You will notice the note now has a descriptive file name, and when viewed in the
+notes list, the title is displayed instead of the file name.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/add_with_title.png"
+        data-srcset="/posts/nb/images/add_with_title.png, /posts/nb/images/add_with_title.png 1.5x, /posts/nb/images/add_with_title.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/add_with_title.png"
+        title="/posts/nb/images/add_with_title.png" width="702" height="149" /></p>
+<h2 id="tags">Tags</h2>
+<p><a href="https://xwmx.github.io/nb/#-tagging" target="_blank" rel="noopener noreffer ">Tags</a> can be added to notes on creation
+time with the <code>--tags</code> flag.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/tags_1.png"
+        data-srcset="/posts/nb/images/tags_1.png, /posts/nb/images/tags_1.png 1.5x, /posts/nb/images/tags_1.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/tags_1.png"
+        title="/posts/nb/images/tags_1.png" width="1480" height="50" /></p>
+<p>This will create a file with two tags in it: <code>#notes</code> and <code>#example</code>.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/tags_2.png"
+        data-srcset="/posts/nb/images/tags_2.png, /posts/nb/images/tags_2.png 1.5x, /posts/nb/images/tags_2.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/tags_2.png"
+        title="/posts/nb/images/tags_2.png" width="1114" height="482" /></p>
+<p>You can view all the tags you've added to notes in your notebook by just
+passing the <code>--tags</code> flag to <code>nb</code>.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/tags_3.png"
+        data-srcset="/posts/nb/images/tags_3.png, /posts/nb/images/tags_3.png 1.5x, /posts/nb/images/tags_3.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/tags_3.png"
+        title="/posts/nb/images/tags_3.png" width="1296" height="146" /></p>
+<p>Tags are a great way of organizing your thoughts, as they provide a way to
+search for notes using boolean logic (i.e. find my notes with <code>this</code> tag but
+<strong>not</strong> <code>that</code> tag). You&rsquo;ll see more of them in the seciton on
+<a href="#Search" rel="">searching</a>.</p>
+<h2 id="viewing">Viewing</h2>
+<p>Creating notes is great, but viewing notes is arguable the only other mission
+critical feature of a note taking system.</p>
+<p><code>nb</code> has multiple ways of viewing notes, depending on your use case.</p>
+<p>To simply see the contents of a note, you can use <code>peek</code> or <code>show</code>, and the name
+or id of the note.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/show_0.png"
+        data-srcset="/posts/nb/images/show_0.png, /posts/nb/images/show_0.png 1.5x, /posts/nb/images/show_0.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/show_0.png"
+        title="/posts/nb/images/show_0.png" width="701" height="45" /></p>
+<p>After hitting enter, a command line content viewer opens up.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/show_1.png"
+        data-srcset="/posts/nb/images/show_1.png, /posts/nb/images/show_1.png 1.5x, /posts/nb/images/show_1.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/show_1.png"
+        title="/posts/nb/images/show_1.png" width="653" height="259" /></p>
+<p>This opens up a read only view of the note (using
+<a href="https://man7.org/linux/man-pages/man1/less.1.html" target="_blank" rel="noopener noreffer ">less</a> by default).</p>
+<p>To have the note just printed to stdout, you can add the <code>--print</code> flag.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/show_2.png"
+        data-srcset="/posts/nb/images/show_2.png, /posts/nb/images/show_2.png 1.5x, /posts/nb/images/show_2.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/show_2.png"
+        title="/posts/nb/images/show_2.png" width="503" height="55" /></p>
+<p>If you have the <a href="https://github.com/sharkdp/bat" target="_blank" rel="noopener noreffer ">bat</a> command, it will be used
+instead of <a href="https://man7.org/linux/man-pages/man1/cat.1.html" target="_blank" rel="noopener noreffer ">cat</a> to print the
+contents of your note. This can be more easily seen when viewing a note with a
+title:</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/show_3.png"
+        data-srcset="/posts/nb/images/show_3.png, /posts/nb/images/show_3.png 1.5x, /posts/nb/images/show_3.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/show_3.png"
+        title="/posts/nb/images/show_3.png" width="471" height="100" /></p>
+<p><code>nb</code> does this sort of progressive enhancement in many ways. It will use the
+basic posix tools available on every system by default, but will enhance its
+functionality when a more modern alternative is available.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>Lastly for purely viewing purposes, there exists the <code>--excerpt</code> flag on the
+<code>list/ls</code> command. By default when no arguments are given to <code>nb</code>, it implicitly
+run the <code>list</code> command. You can give <code>list</code> any
+<a href="https://xwmx.github.io/nb/#-selectors" target="_blank" rel="noopener noreffer ">selector</a> and it will only show items
+which match that selector. When the <code>--excerpt|-e</code> flag is given, it will show
+the first few lines of the item.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/excerpt.png"
+        data-srcset="/posts/nb/images/excerpt.png, /posts/nb/images/excerpt.png 1.5x, /posts/nb/images/excerpt.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/excerpt.png"
+        title="/posts/nb/images/excerpt.png" width="703" height="142" /></p>
+<p><code>nb</code> supports two commands for opening up the note in order to be interacted
+with. <code>edit</code> does what you should expect, opening up the note in your editor.
+<code>open</code> is almost identical, except when opening a bookmark, the bookmarked url
+will be opened in your web browser (more on that in <a href="#Bookmarks" rel="">bookmarks</a>).</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/edit_1.png"
+        data-srcset="/posts/nb/images/edit_1.png, /posts/nb/images/edit_1.png 1.5x, /posts/nb/images/edit_1.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/edit_1.png"
+        title="/posts/nb/images/edit_1.png" width="703" height="260" /></p>
+<p>This will open up the file in the configured editor (in my case, emacsclient).
+Once you&rsquo;re done editing, simply save and close the file.</p>
+<h2 id="browse">Browse</h2>
+<p>Lastly, <code>nb</code> supports a terminal note browser (and also a local browser server
+to view and edit your notes in a web browser). It is started with <code>nb browse</code> or
+<code>nb b</code> for short.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/browser_1.png"
+        data-srcset="/posts/nb/images/browser_1.png, /posts/nb/images/browser_1.png 1.5x, /posts/nb/images/browser_1.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/browser_1.png"
+        title="/posts/nb/images/browser_1.png" width="1196" height="972" /></p>
+<p>You can <a href="#Search" rel="">search</a> from here as well as select notes to view and even
+edit. If <code>browse</code> is ran with the <code>--gui</code> (or <code>-g</code> for short) flag, it starts a
+local webserver so you can view your notes in a web browser.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/browser_2.png"
+        data-srcset="/posts/nb/images/browser_2.png, /posts/nb/images/browser_2.png 1.5x, /posts/nb/images/browser_2.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/browser_2.png"
+        title="/posts/nb/images/browser_2.png" width="1532" height="776" /></p>
+<p>I won&rsquo;t go into much further detail on the browser, but if this interests you,
+you can check it out yourself <a href="https://xwmx.github.io/nb/#-browsing" target="_blank" rel="noopener noreffer ">here</a>.</p>
+<h1 id="todos">Todos</h1>
+<p><code>nb</code> excels in storing and retrieving notes, but it can handle todo items as
+well. For this, <code>nb</code> differentiates <code>todos</code> from <code>tasks</code>. A <code>todo</code> is a overall
+body of work to be done. In <code>nb</code>, a todo is stored in its own file and is
+visible from the <code>list</code> command.</p>
+<p>To create a todo, you can use the <code>todos</code> sub command with the <code>add</code> argument.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nb todos add <span class="s1">&#39;Finish this article&#39;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>Added: [5] ✔️  20231129140921.todo.md &#34;[ ] Finish this article&#34;</code></pre></div>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/todo_1.png"
+        data-srcset="/posts/nb/images/todo_1.png, /posts/nb/images/todo_1.png 1.5x, /posts/nb/images/todo_1.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/todo_1.png"
+        title="/posts/nb/images/todo_1.png" width="703" height="222" /></p>
+<p>Calling <code>nb todos</code> without any arguments will list only the items of type todo.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/todo_2.png"
+        data-srcset="/posts/nb/images/todo_2.png, /posts/nb/images/todo_2.png 1.5x, /posts/nb/images/todo_2.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/todo_2.png"
+        title="/posts/nb/images/todo_2.png" width="702" height="65" /></p>
+<p>A <code>task</code> is a single component of a <code>todo</code>. A <code>todo</code> can have many <code>tasks</code>. You
+can add tasks to a todo at creation time with the <code>--task</code> flag if you know what
+they will be up front.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nb todos add <span class="s1">&#39;Learn about todos and tasks&#39;</span> --task <span class="s1">&#39;learn about todos&#39;</span> --task <span class="s1">&#39;learn about tasks&#39;</span> --task <span class="s1">&#39;learn how to complete todos&#39;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>Added: [6] ✔️  20231129141554.todo.md &#34;[ ] Learn about todos and tasks&#34;</code></pre></div>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/todo_3.png"
+        data-srcset="/posts/nb/images/todo_3.png, /posts/nb/images/todo_3.png 1.5x, /posts/nb/images/todo_3.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/todo_3.png"
+        title="/posts/nb/images/todo_3.png" width="707" height="247" /></p>
+<p>As you can see, only the top level <code>todo</code> is display in the <code>list</code> view. Using
+the <code>tasks</code> command will show us each todo and its associated tasks if it has
+any.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/todo_4.png"
+        data-srcset="/posts/nb/images/todo_4.png, /posts/nb/images/todo_4.png 1.5x, /posts/nb/images/todo_4.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/todo_4.png"
+        title="/posts/nb/images/todo_4.png" width="648" height="190" /></p>
+<p>Todos can be checked off using <code>nb todos do</code> or <code>nb do</code> for an even shorter
+method.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/todo_5.png"
+        data-srcset="/posts/nb/images/todo_5.png, /posts/nb/images/todo_5.png 1.5x, /posts/nb/images/todo_5.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/todo_5.png"
+        title="/posts/nb/images/todo_5.png" width="700" height="277" /></p>
+<p>Tasks can be checked off is the same way using the selector as it's displayed
+in the <code>tasks</code> view.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/todo_6.png"
+        data-srcset="/posts/nb/images/todo_6.png, /posts/nb/images/todo_6.png 1.5x, /posts/nb/images/todo_6.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/todo_6.png"
+        title="/posts/nb/images/todo_6.png" width="760" height="452" /></p>
+<p>Unchecking a task is done with <code>undo</code>.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/todo_7.png"
+        data-srcset="/posts/nb/images/todo_7.png, /posts/nb/images/todo_7.png 1.5x, /posts/nb/images/todo_7.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/todo_7.png"
+        title="/posts/nb/images/todo_7.png" width="703" height="66" /></p>
+<p>Internally, todos (and tasks) are just markdown files <code>nb</code> manages for you. You
+can look at them directly and even edit them by hand if you want. This can be
+helpful if you want to put more context into the todo.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/todo_8.png"
+        data-srcset="/posts/nb/images/todo_8.png, /posts/nb/images/todo_8.png 1.5x, /posts/nb/images/todo_8.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/todo_8.png"
+        title="/posts/nb/images/todo_8.png" width="698" height="194" /></p>
+<p>And when running <code>nb edit 6</code>:<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/todo_9.png"
+        data-srcset="/posts/nb/images/todo_9.png, /posts/nb/images/todo_9.png 1.5x, /posts/nb/images/todo_9.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/todo_9.png"
+        title="/posts/nb/images/todo_9.png" width="944" height="334" /></p>
+<h1 id="bookmarks">Bookmarks</h1>
+<p>Bookmarks are one more type of note-adjacent item you can store in <code>nb</code>. They
+are created by providing <code>nb</code> with a url. <code>nb</code> will store the url and scrape the
+website for its title and convert the content into markdow to store along with
+the link.</p>
+<p>This is a great way both to keep track of a url for later, but also for
+distraction free, offline viewing of the site at some future date.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/bk_1.png"
+        data-srcset="/posts/nb/images/bk_1.png, /posts/nb/images/bk_1.png 1.5x, /posts/nb/images/bk_1.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/bk_1.png"
+        title="/posts/nb/images/bk_1.png" width="873" height="70" /> Technically the <code>bookmark</code> part of the above command is
+optional. When you give an argument that looks like a url to <code>nb</code>, it is aware
+and creates a bookmark for you. e.g. <code>nb https://google.com</code> would bookmark
+google.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/bk_2.png"
+        data-srcset="/posts/nb/images/bk_2.png, /posts/nb/images/bk_2.png 1.5x, /posts/nb/images/bk_2.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/bk_2.png"
+        title="/posts/nb/images/bk_2.png" width="704" height="277" /></p>
+<p>As you can see, <code>nb</code> parsed the title of the website, and stored the url
+provided. If you tell nb to open the item (<code>nb open 7</code>), it will open the stored
+link in your web browser. <code>show</code> will open the parsed contents of the page in
+<code>less</code>, and <code>edit</code> allows you to, you guessed it, edit the contents of the
+converted page contents. Lastly, giving no additional arguments to the
+<code>bookmarks</code> command (<code>bk</code> for short) will show you only the bookmark items you
+have saved.</p>
+<h1 id="notebooks">Notebooks</h1>
+<p>Notebooks are an organizational structure to silo some notes from others. When
+listing notes (or todos, bookmarks, etc.), only notes from the current notebook
+are displayed.</p>
+<p>The screenshots you&rsquo;ve seen so far crop out the notebook ui from the top center
+of its output.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/notebook_1.png"
+        data-srcset="/posts/nb/images/notebook_1.png, /posts/nb/images/notebook_1.png 1.5x, /posts/nb/images/notebook_1.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/notebook_1.png"
+        title="/posts/nb/images/notebook_1.png" width="368" height="36" /></p>
+<p>Notebooks can be created with the <code>notebook</code> subcommand.
+<code>nb notebook add sample</code> would create a new notebook called <code>sample</code>.
+<code>nb notebook delete sample</code> would delete it.</p>
+<p>The highlighted <code>work</code> indicates it is the current notebook, meaning all
+commands will function only on the items within this notebook. You can switch to
+a different notebook using the <code>use</code> command, but if you just want to run a one
+off search, view, or edit command, you can prefix the selector with the notebook
+name and a <code>:</code>.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/notebook_2.png"
+        data-srcset="/posts/nb/images/notebook_2.png, /posts/nb/images/notebook_2.png 1.5x, /posts/nb/images/notebook_2.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/notebook_2.png"
+        title="/posts/nb/images/notebook_2.png" width="984" height="178" /></p>
+<p>In my understanding, notebooks make sense if you keep multiple logically
+unrelated corpora of notes.</p>
+<h1 id="folders">Folders</h1>
+<p><code>nb</code> also supports folders which act exactly as you would expect a folder to.
+Folders can be used to organize or hierarchically order your notes. In <code>nb</code>,
+they help to reduce clutter of your notes because any note inside a folder is
+not displayed by default.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/folder_1.png"
+        data-srcset="/posts/nb/images/folder_1.png, /posts/nb/images/folder_1.png 1.5x, /posts/nb/images/folder_1.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/folder_1.png"
+        title="/posts/nb/images/folder_1.png" width="844" height="80" /></p>
+<p>Folders (unlike notebooks) will be created on the fly as needed given the path
+of the note you want to create. In this case, the folder <code>my_folder</code> was created
+dynamically in order to create the note.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/folder_2.png"
+        data-srcset="/posts/nb/images/folder_2.png, /posts/nb/images/folder_2.png 1.5x, /posts/nb/images/folder_2.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/folder_2.png"
+        title="/posts/nb/images/folder_2.png" width="705" height="297" /></p>
+<p>You can view the contents of a folder by issuing the folder name and a <code>/</code>.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/folder_3.png"
+        data-srcset="/posts/nb/images/folder_3.png, /posts/nb/images/folder_3.png 1.5x, /posts/nb/images/folder_3.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/folder_3.png"
+        title="/posts/nb/images/folder_3.png" width="688" height="136" /></p>
+<p>Pretty much every command can be prefixed with a selector, meaning you can put
+your bookmark in a different notebook, a todo inside a folder, a note inside a
+different notebook's nested folder, etc.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/folder_4.png"
+        data-srcset="/posts/nb/images/folder_4.png, /posts/nb/images/folder_4.png 1.5x, /posts/nb/images/folder_4.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/folder_4.png"
+        title="/posts/nb/images/folder_4.png" width="866" height="54" /></p>
+<h1 id="search">Search</h1>
+<p><code>nb</code> has intuitive and powerful search functionality, allowing you to search for
+strings, regexes, tags (covered briefly in this article, but you should check
+<a href="https://xwmx.github.io/nb/#-tagging" target="_blank" rel="noopener noreffer ">them</a> out in full), types of notes, and
+combine all of the above with Boolean operators: <code>--and</code> and <code>--or</code>. The
+sub-command to search is <code>search</code> or <code>q</code> for short.</p>
+<p>Searches are performed in the current notebook by default, but like any other nb
+command, can target any notebook and/or folder if desired.</p>
+<p>Searches can be made across <em>all</em> of your notes using the <code>-a</code> flag.</p>
+<p>I won&rsquo;t go much deeper into <code>nb</code>'s search functionality, so you can check it
+out yourself if you&rsquo;re interested. It&rsquo;s very easy to figure out and follows
+intuitive conventions if you&rsquo;ve used any searching tool before.</p>
+<p>To get a feel for how searches work, here are a few examples taken from the
+docs:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># search current notebook for &#34;example query&#34;</span>
+</span></span><span class="line"><span class="cl">nb search <span class="s2">&#34;example query&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># search the notebook &#34;example&#34; for &#34;example query&#34;</span>
+</span></span><span class="line"><span class="cl">nb search example: <span class="s2">&#34;example query&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># search all unarchived notebooks for &#34;example query&#34; and list matching items</span>
+</span></span><span class="line"><span class="cl">nb search <span class="s2">&#34;example query&#34;</span> --all --list
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># search for &#34;example&#34; AND &#34;demo&#34;</span>
+</span></span><span class="line"><span class="cl">nb search <span class="s2">&#34;example&#34;</span> <span class="s2">&#34;demo&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># search for &#34;example&#34; AND &#34;demo&#34;</span>
+</span></span><span class="line"><span class="cl">nb search <span class="s2">&#34;example&#34;</span> --and <span class="s2">&#34;demo&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># search with regular expression</span>
+</span></span><span class="line"><span class="cl">nb search <span class="s2">&#34;\d\d\d-\d\d\d\d&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># search for items tagged with &#34;#tag1&#34;</span>
+</span></span><span class="line"><span class="cl">nb search --tags tag1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># search for items tagged with &#34;#tag1&#34; (short version)</span>
+</span></span><span class="line"><span class="cl">nb q -t tag1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># search for items tagged with &#34;#tag1&#34; (even shorter version)</span>
+</span></span><span class="line"><span class="cl">nb q <span class="s2">&#34;#tag1&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># search in the &#34;example&#34; notebook for &#34;example&#34;</span>
+</span></span><span class="line"><span class="cl">nb example:q <span class="s2">&#34;example&#34;</span></span></span></code></pre></div></div>
+<h1 id="conclusion">Conclusion</h1>
+<p><code>nb</code> is busting at the seams with functionality. This article has covered maybe
+a quarter of all the things it can do. Their
+<a href="https://xwmx.github.io/nb/#overview" target="_blank" rel="noopener noreffer ">documentation</a> is fantastic and covers
+everything I didn&rsquo;t have time to. Additionally the built in help is also
+comprehensive (<code>nb help</code>, or just throw a <code>--help</code> onto any command you're
+trying to work with). It also supports linking notes to each other (see
+<a href="https://xwmx.github.io/nb/#-linking" target="_blank" rel="noopener noreffer ">docs</a>), syncing notes automatically using
+a git repository, color themes, a robust plugin system, images, videos
+(<code>nb import</code>, <a href="https://xwmx.github.io/nb/#%EF%B8%8F-import--export" target="_blank" rel="noopener noreffer ">docs</a>), and
+more.</p>
+<p>Despite the overwhelming breadth of features, I&rsquo;ve found working with <code>nb</code> very
+pleasant to explore incrementally. Commands are well documented, arguments are
+flexible, meaning you don&rsquo;t have to memorize the exact order or name of every
+command; even if you&rsquo;re close, <code>nb</code> will likely understand what you were trying
+to do, and will do it for you.</p>
+<p>I especially like that you can specify your preferred file format; <code>nb</code> doesn&rsquo;t
+force you to use whichever format they decided is best; you get to choose.<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></p>
+<p>I also greatly appreciate that all your notes are stored on your filesystem, in
+a simple folder structure stored in <code>~/.nb</code>.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/nb/images/filesystem.png"
+        data-srcset="/posts/nb/images/filesystem.png, /posts/nb/images/filesystem.png 1.5x, /posts/nb/images/filesystem.png 2x"
+        data-sizes="auto"
+        alt="/posts/nb/images/filesystem.png"
+        title="/posts/nb/images/filesystem.png" width="913" height="271" /> In a world of cloud only, proprietary solutions, I
+find myself looking for simple solutions using existing and well known
+technologies with a preference for offline first. I want to be able to zip my
+notes and copy them to another computer, or better yet, utilize Dropbox or git
+to track and transfer changes. <code>nb</code> manages syncing behind the scenes for you
+using git if you provide a remote repository for it to sync with. This is the
+simplest solution to sync I have seen. If you&rsquo;re interested in more of the
+details of <code>nb</code>&rsquo;s sync functionality, see their
+<a href="https://xwmx.github.io/nb/#-git-sync" target="_blank" rel="noopener noreffer ">docs</a> on the concept.</p>
+<p>Even refreshing note taking tools like <a href="https://obsidian.md/" target="_blank" rel="noopener noreffer ">obsidian</a> which
+store your notes in plain markdown on your machine require a paid subscription
+for access to their sync functionality, while other tools silently migrate
+useful features from their free plans into their paid ones.</p>
+<p><code>nb</code> strikes a balance between the do-it-yourself freedom of note organization
+and the power that comes from enforcing a known format (todos, bookmarks,
+notebooks, etc.). The only &ldquo;missing&rdquo; feature I noticed was a lack of mobile
+support, but that hardly feels fair to fault a terminal note taking tool for
+missing. If that&rsquo;s a deal breaker, perhaps <code>nb</code> won&rsquo;t be the perfect tool for
+you.</p>
+<p>It was easy enough to get started with <code>nb</code> and because the files are any format
+you like, stored on your computer, you risk nothing if you don't end up liking
+it, so I&rsquo;d recommend just giving it a shot.</p>
+<h1 id="footnotes">Footnotes</h1>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>This isn&rsquo;t quite true, as there is a fairly well supported note browser
+that can be started from the <code>nb</code> binary with <code>nb browse --gui</code>.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://xwmx.github.io/nb/#optional" target="_blank" rel="noopener noreffer ">https://xwmx.github.io/nb/#optional</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>This opened a buffer in my emacs session with the given file.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>This holds true for notes, but bookmarks and todos are markdown files.
+Always.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-12-01</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="http://localhost:55042/posts/nb/" data-title="nb" data-hashtags="notes,review"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Threads" data-sharer="threads" data-url="http://localhost:55042/posts/nb/" data-title="nb"><i class="fab fa-threads fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:55042/posts/nb/" data-hashtag="notes"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:55042/posts/nb/" data-title="nb"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://localhost:55042/posts/nb/" data-title="nb"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://localhost:55042/posts/nb/" data-title="nb"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Diaspora" data-sharer="diaspora" data-url="http://localhost:55042/posts/nb/" data-title="nb" data-description=""><i class="fab fa-diaspora fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=http%3a%2f%2flocalhost%3a55042%2fposts%2fnb%2f&amp;text=nb" target="_blank" title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/notes/">Notes</a>,&nbsp;<a href="/tags/review/">Review</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/sed_part_2/" class="prev" rel="prev" title="sed (part 2)"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>sed (part 2)</a>
+            <a href="/posts/jq/" class="next" rel="next" title="jq">jq<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.140.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">xxxx</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script>window.config={"comment":{}};</script><script src="/js/theme.min.js"></script></body>
+</html>

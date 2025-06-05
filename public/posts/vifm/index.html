@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=55042&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Vifm - My New Hugo Site</title><meta name="Description" content="This is my cool site"><meta property="og:url" content="http://localhost:55042/posts/vifm/">
+  <meta property="og:site_name" content="My New Hugo Site">
+  <meta property="og:title" content="Vifm">
+  <meta property="og:description" content="Introduction Vifm is the vi file manager. It uses dual window design reminiscient of midnight commander, but attempts to replicate vi keybindings as much as possible.
+NOTE: I have installed the catppuccin theme and the vim devicons plugin.
+The emulation is so complete that I can confidently say, if you know how to use vi (or vim or neovim) you already know how to use vifm. Your intuition as to moving around, copying and pasting files, using marks, etc will guide you to the correct key or command.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-10-20T16:00:00-06:00">
+    <meta property="article:modified_time" content="2023-10-20T16:00:00-06:00">
+    <meta property="article:tag" content="File_manager">
+    <meta property="article:tag" content="Review">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Vifm">
+  <meta name="twitter:description" content="Introduction Vifm is the vi file manager. It uses dual window design reminiscient of midnight commander, but attempts to replicate vi keybindings as much as possible.
+NOTE: I have installed the catppuccin theme and the vim devicons plugin.
+The emulation is so complete that I can confidently say, if you know how to use vi (or vim or neovim) you already know how to use vifm. Your intuition as to moving around, copying and pasting files, using marks, etc will guide you to the correct key or command.">
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:55042/posts/vifm/" /><link rel="prev" href="http://localhost:55042/posts/midnight_commander/" /><link rel="next" href="http://localhost:55042/posts/grep/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Vifm",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:55042\/posts\/vifm\/"
+        },"genre": "posts","keywords": "file_manager, review","wordcount":  813 ,
+        "url": "http:\/\/localhost:55042\/posts\/vifm\/","datePublished": "2023-10-20T16:00:00-06:00","dateModified": "2023-10-20T16:00:00-06:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "xxxx"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="My New Hugo Site">My cool site</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> Posts </a><a class="menu-item" href="/tags"> Tags </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="My New Hugo Site">My cool site</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts" title="">Posts</a><a class="menu-item" href="/tags" title="">Tags</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Vifm</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>xxxx</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-10-20">2023-10-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;813 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#basic-features">Basic features</a></li>
+    <li><a href="#finding-files">Finding files</a></li>
+    <li><a href="#marks">Marks</a></li>
+    <li><a href="#configuration">Configuration</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
+<p>Vifm is the vi file manager. It uses dual window design reminiscient of midnight
+commander, but attempts to replicate vi keybindings as much as possible.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/vifm/images/overview.png"
+        data-srcset="/posts/vifm/images/overview.png, /posts/vifm/images/overview.png 1.5x, /posts/vifm/images/overview.png 2x"
+        data-sizes="auto"
+        alt="/posts/vifm/images/overview.png"
+        title="/posts/vifm/images/overview.png" width="1225" height="622" /></p>
+<p><em>NOTE: I have installed the catppuccin theme and the
+<a href="https://github.com/thimc/vifm_devicons" target="_blank" rel="noopener noreffer ">vim devicons</a> plugin.</em></p>
+<p>The emulation is so complete that I can confidently say, if you know how to use
+vi (or vim or neovim) you already know how to use vifm. Your intuition as to
+moving around, copying and pasting files, using marks, etc will guide you to the
+correct key or command.</p>
+<p>For some of you, this might already be enough of a sell that you could close
+this tab, install vifm, and have some fun exploring its features. For the rest
+of you however, I&rsquo;ll dig into some of the unique features, quirks and pain
+points.</p>
+<h2 id="basic-features">Basic features</h2>
+<p>As expected, all the basic navigation from vim works here. <code>h</code>, <code>j</code>, <code>k</code> and <code>l</code>
+move up, down, back and forward through the directory tree. <code>gg</code> moves to the
+first item in the current directory, <code>G</code> goes to the last. <code>H</code>, <code>M</code>, <code>L</code> move to
+the top, middle, and bottom of the visible window&rsquo;s contents.</p>
+<p>You can rename, cut, copy, and delete files just like you would expect for a vim
+inspired file manager (just like in <a href="/posts/ranger#renaming" rel="">ranger</a>. And bulk
+updates work the same way (using a temporary file which you edit in order to
+specify the desired changes)</p>
+<h2 id="finding-files">Finding files</h2>
+<p>There are many commands you can execute by triggering <code>ex</code> mode (using <code>:</code>).
+However one notable one that deserves some attention is <code>:grep</code>.</p>
+<p>Consider the following situation: You&rsquo;re at the root of some project, and you
+want to find all the files which contain the string <code>db</code>.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/vifm/images/grep_1.png"
+        data-srcset="/posts/vifm/images/grep_1.png, /posts/vifm/images/grep_1.png 1.5x, /posts/vifm/images/grep_1.png 2x"
+        data-sizes="auto"
+        alt="/posts/vifm/images/grep_1.png"
+        title="/posts/vifm/images/grep_1.png" width="2282" height="1350" /></p>
+<p>Execute <code>:grep database</code>, and a window will pop up with all the results
+recursively.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/vifm/images/grep_2.png"
+        data-srcset="/posts/vifm/images/grep_2.png, /posts/vifm/images/grep_2.png 1.5x, /posts/vifm/images/grep_2.png 2x"
+        data-sizes="auto"
+        alt="/posts/vifm/images/grep_2.png"
+        title="/posts/vifm/images/grep_2.png" width="2280" height="1354" /></p>
+<p>Hmmm&hellip; that certainly gave us <em>all</em> the results. But there&rsquo;s probably some
+files included in the results that we don't care about, notably <code>go.mod</code> and
+<code>go.sum</code>.</p>
+<p>Let&rsquo;s select those two files (using <code>t</code>), then invert the selection (using
+<code>:invert s</code>, for invert selection)</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/vifm/images/grep_3.png"
+        data-srcset="/posts/vifm/images/grep_3.png, /posts/vifm/images/grep_3.png 1.5x, /posts/vifm/images/grep_3.png 2x"
+        data-sizes="auto"
+        alt="/posts/vifm/images/grep_3.png"
+        title="/posts/vifm/images/grep_3.png" width="2282" height="1356" /></p>
+<p>Now running grep will limit its search to only the selected files.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/vifm/images/grep_4.png"
+        data-srcset="/posts/vifm/images/grep_4.png, /posts/vifm/images/grep_4.png 1.5x, /posts/vifm/images/grep_4.png 2x"
+        data-sizes="auto"
+        alt="/posts/vifm/images/grep_4.png"
+        title="/posts/vifm/images/grep_4.png" width="2282" height="1360" /></p>
+<p>Now that&rsquo;s much easier to work with. This window can be navigated with the same
+vim bindings for regular navigation, and pressing (<code>l</code> or <code>enter)</code> on any of the
+lines will jump into that file to the relevant line.</p>
+<h2 id="marks">Marks</h2>
+<p>True to its vim inspiration, you can use
+<a href="https://vim.fandom.com/wiki/Using_marks" target="_blank" rel="noopener noreffer ">marks</a> to set temporary bookmarks you
+can jump back to later. The marks you set are ephemeral and are lost when you
+close vifm.</p>
+<p>Marks can be made permanent by adding them to the
+<a href="#configuration" rel=""><em>configuration</em></a> file. This is a great way to set easy access
+to common directories you work on frequently.</p>
+<p>Speaking of configuration, vifm supports a huge number of configurable settings.
+It should be a surprise to no one that the syntax of its configuration file is
+the same as vim&rsquo;s.</p>
+<h2 id="configuration">Configuration</h2>
+<p>Stored in <code>~/.config/vifm/vifmrc</code>, vifm&rsquo;s configuration comes pre-populated upon
+installation with extensive commentary and default values for each setting. You
+can change this file however you like, there are many like it, but this one is
+yours.</p>
+<p>For example, to add by default a mark for your home directory, add the following
+line to your <code>vifmrc</code>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-vimrc">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vimrc" data-lang="vimrc"><span class="line"><span class="cl"><span class="nx">mark</span> <span class="nx">h</span> <span class="p">~</span>/</span></span></code></pre></div></div>
+<p>Now, any time you want to jump home in vifm, simply hit <code>'h</code>.</p>
+<p>To fully explore all the configuration settings would warrant a whole article of
+its own so I&rsquo;ll end the discussion here for now.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This is a shorter article is part because there is so much overlap with ranger,
+which received a fuller write up.</p>
+<p>Vifm and ranger share many keybindings and a similar philosophy, so why would
+you choose one over the other? In my mind it depends on two things. 1. Do you
+like miller columns<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> or dual window displays? And 2. do you like to customize
+your tools with a programming language (ranger uses python) or a simple
+declarative format like vifm&rsquo;s?</p>
+<p>Additionally, though ranger utilizes many vim keybindings, only vifm can
+honestly claim &ldquo;If you know vim, you know vifm&rdquo;. That&rsquo;s a pretty strong
+statement that I&rsquo;m making on their behalf. This is perhaps the biggest sell, and
+it may just be the deciding factor for you.</p>
+<p>There&rsquo;s no right or wrong here, but simply a matter of taste. Whichever you
+choose, you can rest assured that taking time to find the tool works for you
+will remove one source of friction in your workflow.</p>
+<p>This also concludes the month of terminal file managers. Coming up next will be
+a series of articles reviewing basic POSIX tools and how to squeeze every last
+ounce of utility you can.</p>
+<h1 id="footnotes">Footnotes</h1>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Vifm technically supports miller columns as well using <code>:set millerview</code>
+but I struggled to get it working nicely. I would say if you really want
+this design, ranger may be the better choice for you.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-10-20</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="http://localhost:55042/posts/vifm/" data-title="Vifm" data-hashtags="file_manager,review"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Threads" data-sharer="threads" data-url="http://localhost:55042/posts/vifm/" data-title="Vifm"><i class="fab fa-threads fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:55042/posts/vifm/" data-hashtag="file_manager"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:55042/posts/vifm/" data-title="Vifm"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://localhost:55042/posts/vifm/" data-title="Vifm"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://localhost:55042/posts/vifm/" data-title="Vifm"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Diaspora" data-sharer="diaspora" data-url="http://localhost:55042/posts/vifm/" data-title="Vifm" data-description=""><i class="fab fa-diaspora fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=http%3a%2f%2flocalhost%3a55042%2fposts%2fvifm%2f&amp;text=Vifm" target="_blank" title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/file_manager/">File_manager</a>,&nbsp;<a href="/tags/review/">Review</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/midnight_commander/" class="prev" rel="prev" title="Midnight Commander"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Midnight Commander</a>
+            <a href="/posts/grep/" class="next" rel="next" title="Grep">Grep<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.140.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">xxxx</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script>window.config={"comment":{}};</script><script src="/js/theme.min.js"></script></body>
+</html>

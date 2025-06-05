@@ -1,0 +1,94 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Posix - Tag - My New Hugo Site</title>
+        <link>http://localhost:55042/tags/posix/</link>
+        <description>Posix - Tag - My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 22 Dec 2023 16:00:00 -0600</lastBuildDate><atom:link href="http://localhost:55042/tags/posix/" rel="self" type="application/rss+xml" /><item>
+    <title>Intro to Bash Scripting</title>
+    <link>http://localhost:55042/posts/intro_to_bash_scripting/</link>
+    <pubDate>Fri, 22 Dec 2023 16:00:00 -0600</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:55042/posts/intro_to_bash_scripting/</guid>
+    <description><![CDATA[<h1 id="overview">Overview</h1>
+<p>Bash is a (perhaps <em>the</em> ubiquitous) shell. As a member of the POSIX
+interface, bash provides a consistent access point to applications on
+your operating system.</p>
+<p>Because it is all but guaranteed to be installed on any server and
+environment, learning this one interface will ensure you can be
+comfortable interacting with any computer.</p>
+<p>Before we begin, it will be helpful to clear up a few ambiguous terms
+related to command line tools that often come up together. A <em>terminal</em>
+is a desktop application you start which presents you with a <em>command
+line</em> interface, running your chosen <em>shell</em>.</p>]]></description>
+</item>
+<item>
+    <title>sed (part 2)</title>
+    <link>http://localhost:55042/posts/sed_part_2/</link>
+    <pubDate>Fri, 17 Nov 2023 16:00:00 -0600</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:55042/posts/sed_part_2/</guid>
+    <description><![CDATA[<h2 id="overview">overview</h2>
+<p><a href="/posts/sed" rel="">last</a> time we discussed the command line utility, <code>sed</code>. as a
+stream editor, <code>sed</code> provides a programmatic way to edit files or streams of
+data. rather than opening up a full-fledged, interactive text editor or ide you
+can reach for <code>sed</code>.</p>
+<p>this is particularily useful when you need to make repetative edits over many
+lines, or only on particular lines. <code>sed</code> is also useful for general purpose use
+cases when viewing parts of files or trimming and cleaning up data.</p>]]></description>
+</item>
+<item>
+    <title>Sed (Part 1)</title>
+    <link>http://localhost:55042/posts/sed/</link>
+    <pubDate>Fri, 10 Nov 2023 16:00:00 -0600</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:55042/posts/sed/</guid>
+    <description><![CDATA[<h2 id="overview">Overview</h2>
+<p><a href="https://man7.org/linux/man-pages/man1/sed.1.html" target="_blank" rel="noopener noreffer ">Sed</a> stands for (s)tream
+(ed)itor and is useful for taking any input you have and modifying it in some
+way before sending it along as output, either to the console or as input to the
+next command in your pipeline. It operates on each line of your input, executing
+some command on each as the input is read.</p>
+<p>Chances are if you&rsquo;ve encountered <code>sed</code> before, it came from some sage linux
+master on stack overflow when providing an answer to a bash scripting question.
+If you&rsquo;ve used <code>sed</code> yourself for some task, it&rsquo;s likely using the <code>substitute</code>
+command to find and replace some search term.</p>]]></description>
+</item>
+<item>
+    <title>Find</title>
+    <link>http://localhost:55042/posts/find/</link>
+    <pubDate>Fri, 03 Nov 2023 16:00:00 -0600</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:55042/posts/find/</guid>
+    <description><![CDATA[<h2 id="overview">Overview</h2>
+<p><a href="https://man7.org/linux/man-pages/man1/find.1.html" target="_blank" rel="noopener noreffer ">Find</a> is a utility to <em>find</em>
+files on your computer given a wide range of search parameters. It will
+recursively walk your filesystem
+(<a href="https://en.wikipedia.org/wiki/Breadth-first_search" target="_blank" rel="noopener noreffer ">breadth-first</a>) and print
+(by default) all filenames that have matched your search terms. Think of it like
+<a href="https://man7.org/linux/man-pages/man1/grep.1.html" target="_blank" rel="noopener noreffer ">grep</a> but for file names
+rather than file contents.</p>
+<p>You can search on a variety of metadata on files, ranging from name, creation
+time, update time, owner, group, size, and type (file, directory, link, socket,
+etc.).</p>]]></description>
+</item>
+<item>
+    <title>Grep</title>
+    <link>http://localhost:55042/posts/grep/</link>
+    <pubDate>Fri, 27 Oct 2023 16:00:00 -0600</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:55042/posts/grep/</guid>
+    <description><![CDATA[<h2 id="overview">Overview</h2>
+<p>Grep is a fundamental part of the command line toolbelt. True to the
+<a href="https://en.wikipedia.org/wiki/Unix_philosophy" target="_blank" rel="noopener noreffer ">Unix philosophy</a>, grep does one
+thing, and does it well. Its job is to search input for a given search pattern
+and print all lines that match. Think of it like <code>Command-f</code> for the
+terminal.</p>
+<p>Its origins date back to the <code>ed</code> text editor. It was a common practice within
+<code>ed</code> to execute the command <code>g/r(egular) e(expression)/p</code>, meaning,
+<code>globally</code> search for lines that match the given <code>regular expression</code> and
+<code>print</code> them. This functionality was so useful, that the name &quot;grep&quot; became
+synonomous with the act of searching files and printing matches, and a
+standalone <code>grep</code> program was born.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>]]></description>
+</item>
+</channel>
+</rss>

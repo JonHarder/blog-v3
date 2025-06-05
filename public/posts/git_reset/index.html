@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=55042&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Git Reset - My New Hugo Site</title><meta name="Description" content="This is my cool site"><meta property="og:url" content="http://localhost:55042/posts/git_reset/">
+  <meta property="og:site_name" content="My New Hugo Site">
+  <meta property="og:title" content="Git Reset">
+  <meta property="og:description" content="Introduction [!NOTIFY] This is a test
+The last post in our series on git discussed the structure and importance of git commits. Ideally, every commit you make would be clear, concise, small, logical, and self-contained. Unfortunately, reality rarely allows us to know ahead of time what exactly will end up becoming a perfect commit. You may commit the first step in your feature, and come to realize while you are working on the next step that your first commit is not quite right. Or maybe you notice a simple typo in the work you just committed.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-01T15:40:00-06:00">
+    <meta property="article:modified_time" content="2025-01-01T15:40:00-06:00">
+    <meta property="article:tag" content="How-To">
+    <meta property="article:tag" content="Git">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Git Reset">
+  <meta name="twitter:description" content="Introduction [!NOTIFY] This is a test
+The last post in our series on git discussed the structure and importance of git commits. Ideally, every commit you make would be clear, concise, small, logical, and self-contained. Unfortunately, reality rarely allows us to know ahead of time what exactly will end up becoming a perfect commit. You may commit the first step in your feature, and come to realize while you are working on the next step that your first commit is not quite right. Or maybe you notice a simple typo in the work you just committed.">
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:55042/posts/git_reset/" /><link rel="prev" href="http://localhost:55042/posts/zellij/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Git Reset",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:55042\/posts\/git_reset\/"
+        },"genre": "posts","keywords": "how-to, git","wordcount":  2445 ,
+        "url": "http:\/\/localhost:55042\/posts\/git_reset\/","datePublished": "2025-01-01T15:40:00-06:00","dateModified": "2025-01-01T15:40:00-06:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "xxxx"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="My New Hugo Site">My cool site</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> Posts </a><a class="menu-item" href="/tags"> Tags </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="My New Hugo Site">My cool site</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts" title="">Posts</a><a class="menu-item" href="/tags" title="">Tags</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Git Reset</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>xxxx</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-01-01">2025-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2445 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;12 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#dont-cause-a-time-paradox">Don&rsquo;t cause a time paradox</a></li>
+    <li><a href="#git-reset">Git Reset</a>
+      <ul>
+        <li><a href="#resetting-files">Resetting files</a></li>
+        <li><a href="#resetting-the-working-tree">Resetting the working tree</a></li>
+      </ul>
+    </li>
+    <li><a href="#additional-posts-in-this-series">Additional posts in this series</a></li>
+    <li><a href="#footnotes">Footnotes</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
+<blockquote>
+<p>[!NOTIFY]
+This is a test</p>
+</blockquote>
+<p>The <a href="/posts/git_commit" rel="">last post</a> in our series on git discussed the structure
+and importance of git commits. Ideally, every commit you make would be clear,
+concise, small, logical, and self-contained. Unfortunately, reality rarely
+allows us to know ahead of time what exactly will end up becoming a perfect
+commit. You may commit the first step in your feature, and come to realize while
+you are working on the next step that your first commit is not quite right. Or
+maybe you notice a simple typo in the work you just committed.</p>
+<p>In either case, the simplest solution to this problem is to simply make the
+change necessary to resolve the issue you&rsquo;ve discovered with the first commit by
+making a second commit. This addresses the issue(s) you found, but do these two
+commits individually embody the qualities we discussed in the previous post? If
+there was a small typo that caused a syntax error in your application, the
+initial commit likely fails testing and would not be deployable. The second
+commit which resolves the typo would certainly be small, logical, testable,
+self-contained, and deployable, but it feels like an opportunity was missed for
+wrapping this up in the first commit.</p>
+<p>Starting with this article and continuing for the next handful of posts, we will
+discuss the tools git provides us to clean up situations like this and other,
+more complicated scenarios by <em>changing the history</em> of commits in a repository.</p>
+<p>But before we dive in, I want to issue a warning.</p>
+<h2 id="dont-cause-a-time-paradox">Don&rsquo;t cause a time paradox</h2>
+<p>This and the future git operations we will be discussing involve <em>changing
+history</em> in git. You may have heard that you should never do this, that it
+causes problems, that you will run into inscrutable merge conflicts that
+resurface over and over and over. These things are true&hellip; <em>sometimes</em>, but only
+if you&rsquo;re not careful about when and how to change history.</p>
+<p>There are a few key principles to keep in mind around changing history in git.
+If you follow them you should mostly stay clear of becoming another cautionary
+tale.</p>
+<ol>
+<li>Changing history that hasn&rsquo;t been pushed anywhere yet is always safe.</li>
+<li>Changing history that has been pushed but not pulled down by others is safe.</li>
+<li>Changing history that others have pulled down is a recipe for <em>pain</em> and
+<em>sadness</em>. <strong>Do not do this</strong>.</li>
+</ol>
+<p>The first point is the most important to remember. If you are working on a local
+series of commits (or patches) that haven&rsquo;t been pushed anywhere, you can change
+the history of those commits however you want. No one else could possibly see
+those commits, so no one could be effected by you changing them or even know
+that you&rsquo;ve changed them. You are the master of your own working tree<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<h2 id="git-reset">Git Reset</h2>
+<p>There are two, very different, functions of the git reset command, and it&rsquo;s
+important to understand the distinction between them.</p>
+<p>The first form deals with resetting the states of <strong>files</strong>, and the second form
+deals with resetting the state of the working tree. The former doesn&rsquo;t
+technically <em>change</em> history as it does not affect the working tree at all,
+therefore it will only be covered briefly in this article. The latter form
+<strong>DOES</strong> change history and will be the primary focus of this article.</p>
+<h3 id="resetting-files">Resetting files</h3>
+<p>The git help docs for <code>git-reset</code> have this to say about resetting files:</p>
+<blockquote>
+<p>These forms reset the index entries for all paths that match the &lt;pathspec&gt;<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>
+to their state at &lt;tree-ish&gt;<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>. (It does not affect the working tree or
+the current branch.)</p>
+</blockquote>
+<p>This means we can set all objects referenced by the <em>pathspec</em> to the state they
+were at the referenced point in history according to <code>tree-ish</code>. Since we&rsquo;ve
+used the time travel analogy, this is like going back in time and pulling a
+friend from a year ago into your time machine and bringing them back to the
+present day, replacing the present day friend with the past one.</p>
+<h4 id="example">Example</h4>
+<p>Given a simple repo with two commits:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>8c38345 (HEAD -&gt; main) Add greet method
+88b396a (origin/main) Initial main.go with a simple hello world</code></pre></div>
+<p>This is the history of changes from the two commits:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git log --patch --oneline</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-diff">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl">bd5e9ea Updated main.go with greet function
+</span></span><span class="line"><span class="cl"><span class="gh">diff --git a/main.go b/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gh">index a36de8e..ba963c4 100644
+</span></span></span><span class="line"><span class="cl"><span class="gh"></span><span class="gd">--- a/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+++ b/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span><span class="gu">@@ -2,6 +2,11 @@ package main
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span> 
+</span></span><span class="line"><span class="cl"> import &#34;fmt&#34;
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="gi">+func greet(name string) {
+</span></span></span><span class="line"><span class="cl"><span class="gi">+	   fmt.Printf(&#34;Hello, %s\n&#34;, name)
+</span></span></span><span class="line"><span class="cl"><span class="gi">+}
+</span></span></span><span class="line"><span class="cl"><span class="gi">+
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span> func main() {
+</span></span><span class="line"><span class="cl"><span class="gd">-	   fmt.Printf(&#34;Hello world\n&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+	   // fmt.Printf(&#34;Hello world\n&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="gi">+	   greet(&#34;Steve&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span> }
+</span></span><span class="line"><span class="cl">88b396a Initial main.go with a simple hello world
+</span></span><span class="line"><span class="cl"><span class="gh">diff --git a/main.go b/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gh"></span>new file mode 100644
+</span></span><span class="line"><span class="cl"><span class="gh">index 0000000..a36de8e
+</span></span></span><span class="line"><span class="cl"><span class="gh"></span><span class="gd">--- /dev/null
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+++ b/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span><span class="gu">@@ -0,0 +1,7 @@
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span><span class="gi">+package main
+</span></span></span><span class="line"><span class="cl"><span class="gi">+
+</span></span></span><span class="line"><span class="cl"><span class="gi">+import &#34;fmt&#34;
+</span></span></span><span class="line"><span class="cl"><span class="gi">+
+</span></span></span><span class="line"><span class="cl"><span class="gi">+func main() {
+</span></span></span><span class="line"><span class="cl"><span class="gi">+	   fmt.Printf(&#34;Hello world\n&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="gi">+}
+</span></span></span></code></pre></div></div>
+<p>Now let&rsquo;s say we want to grab the state of <code>main.go</code> as it was in the first
+commit and apply it on top of the current index.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git reset 88b396a main.go</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Unstaged changes after reset:
+</span></span><span class="line"><span class="cl">M       main.go</span></span></code></pre></div></div>
+<p>Let&rsquo;s see what it did, starting with a simple <code>git status</code></p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git status</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">On branch main
+</span></span><span class="line"><span class="cl">Changes to be committed:
+</span></span><span class="line"><span class="cl">  <span class="o">(</span>use <span class="s2">&#34;git restore --staged &lt;file&gt;...&#34;</span> to unstage<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        modified:   main.go
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Changes not staged <span class="k">for</span> commit:
+</span></span><span class="line"><span class="cl">  <span class="o">(</span>use <span class="s2">&#34;git add &lt;file&gt;...&#34;</span> to update what will be committed<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">(</span>use <span class="s2">&#34;git restore &lt;file&gt;...&#34;</span> to discard changes in working directory<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        modified:   main.go</span></span></code></pre></div></div>
+<p>Hmmm. The index was clean before performing the reset, what are the staged
+changes? And why are there unstaged changes too? Let&rsquo;s take a look.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git diff --staged</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-diff">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl"><span class="gh">diff --git a/main.go b/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gh">index 75bf4f4..a36de8e 100644
+</span></span></span><span class="line"><span class="cl"><span class="gh"></span><span class="gd">--- a/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+++ b/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span><span class="gu">@@ -2,10 +2,6 @@ package main
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span><span class="line"><span class="cl"> import &#34;fmt&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gd">-func greet(name string) {
+</span></span></span><span class="line"><span class="cl"><span class="gd">-     fmt.Printf(&#34;Hello, %s\n&#34;, name)
+</span></span></span><span class="line"><span class="cl"><span class="gd">-}
+</span></span></span><span class="line"><span class="cl"><span class="gd">-
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span> func main() {
+</span></span><span class="line"><span class="cl"><span class="gd">-     greet(&#34;Steve&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="gd">-     // fmt.Printf(&#34;Hello world\n&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+     fmt.Printf(&#34;Hello world\n&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span> }
+</span></span></code></pre></div></div>
+<p>That makes sense. These would be the changes to take our current <code>main.go</code> back
+to the state it was in the first commit.</p>
+<p>What are the unstaged chagnes?</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git diff</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-diff">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl"><span class="gh">diff --git a/main.go b/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gh">index a36de8e..75bf4f4 100644
+</span></span></span><span class="line"><span class="cl"><span class="gh"></span><span class="gd">--- a/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+++ b/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span><span class="gu">@@ -2,6 +2,10 @@ package main
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span><span class="line"><span class="cl"> import &#34;fmt&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gi">+func greet(name string) {
+</span></span></span><span class="line"><span class="cl"><span class="gi">+     fmt.Printf(&#34;Hello, %s\n&#34;, name)
+</span></span></span><span class="line"><span class="cl"><span class="gi">+}
+</span></span></span><span class="line"><span class="cl"><span class="gi">+
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span> func main() {
+</span></span><span class="line"><span class="cl"><span class="gd">-     fmt.Printf(&#34;hello world\n&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+     // fmt.Printf(&#34;Hello world\n&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="gi">+     greet(&#34;Steve&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span> }
+</span></span></code></pre></div></div>
+<p>This diff looks like it would undo the reset. Remember, these are the unstaged
+changes. This is the current state of the file, so we can just <code>cat</code> it to see
+what it looks like.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-go">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">greet</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Hello, %s\n&#34;</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// fmt.Println(&#34;Hello world\n&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">greet</span><span class="p">(</span><span class="s">&#34;Steve&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>Ah, so it left the file in the working tree exactly as it should be according to
+the latest commit, it only updated the index. So to keep the revised change
+created by the index, simply revert the unstaged changes with
+<code>git restore &lt;file&gt;</code>. But to keep the original copy and throw away the changes
+created by reset, revert the changes in the index using
+<code>git restore --staged &lt;file&gt;</code>.</p>
+<p>Resetting files is not the main focus of this article however, so let&rsquo;s move on
+to resetting the working tree.</p>
+<h3 id="resetting-the-working-tree">Resetting the working tree</h3>
+<p>Let&rsquo;s look at our example again with just the two commits:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git log --oneline --patch</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-diff">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl">bd5e9ea (HEAD -&gt; main) Updated main.go with greet function
+</span></span><span class="line"><span class="cl"><span class="gh">diff --git a/main.go b/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gh">index a36de8e..ba963c4 100644
+</span></span></span><span class="line"><span class="cl"><span class="gh"></span><span class="gd">--- a/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+++ b/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span><span class="gu">@@ -2,6 +2,11 @@ package main
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span> 
+</span></span><span class="line"><span class="cl"> import &#34;fmt&#34;
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="gi">+func greet(name string) {
+</span></span></span><span class="line"><span class="cl"><span class="gi">+	   fmt.Printf(&#34;Hello, %s\n&#34;, name)
+</span></span></span><span class="line"><span class="cl"><span class="gi">+}
+</span></span></span><span class="line"><span class="cl"><span class="gi">+
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span> func main() {
+</span></span><span class="line"><span class="cl"><span class="gd">-	   fmt.Printf(&#34;hello world\n&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+	   // fmt.Printf(&#34;hello world\n&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="gi">+	   greet(&#34;Steve&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span> }
+</span></span><span class="line"><span class="cl">88b396a (origin/main) Initial main.go with a simple hello world
+</span></span><span class="line"><span class="cl"><span class="gh">diff --git a/main.go b/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gh"></span>new file mode 100644
+</span></span><span class="line"><span class="cl"><span class="gh">index 0000000..a36de8e
+</span></span></span><span class="line"><span class="cl"><span class="gh"></span><span class="gd">--- /dev/null
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+++ b/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span><span class="gu">@@ -0,0 +1,7 @@
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span><span class="gi">+package main
+</span></span></span><span class="line"><span class="cl"><span class="gi">+
+</span></span></span><span class="line"><span class="cl"><span class="gi">+import &#34;fmt&#34;
+</span></span></span><span class="line"><span class="cl"><span class="gi">+
+</span></span></span><span class="line"><span class="cl"><span class="gi">+func main() {
+</span></span></span><span class="line"><span class="cl"><span class="gi">+	   fmt.Printf(&#34;hello world\n&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="gi">+}
+</span></span></span></code></pre></div></div>
+<p>The sharp-eyed reader may spot a minor annoyance on the HEAD commit. It looks
+like we accidentally added some unused, commented out code in the commit. That
+code shouldn&rsquo;t be there.</p>
+<p>Now we could clean this up by making another commit which removes the commented
+out line of code, but as you&rsquo;ve guessed. Git reset can help us clear up this
+problem and leave no trace that this oversight ever happened.</p>
+<p>But first, we need to make sure we don&rsquo;t cause a time paradox. The first and
+most important rule is:</p>
+<blockquote>
+<p>Changing history that hasn&rsquo;t been pushed anywhere yet is always safe.</p>
+</blockquote>
+<p>You can tell at a glance from the git log output if a particular commit has been
+pushed to a remote by the content between the <code>()</code> on the commit message. In
+this case you can see the first commit <em>has</em> been pushed because it says:
+<code>(origin/main)</code>. The second commit however has <em>not</em> been because it lacks any
+reference to the <code>origin</code>: <code>(HEAD -&gt; main)</code>. This tells us this commit is the
+HEAD commit and it&rsquo;s on the main branch, and it also tells us it hasn&rsquo;t been
+pushed to our origin.</p>
+<p>To confirm this via a different method, we could use a more advanced feature of
+<code>git log</code> by specifying an exclusion to the set of commits to log. Prefixing a
+revision range with a <code>^</code> means: <em>remove from the range of commits to log all
+commits in this range</em>.</p>
+<p>So if we want to view all the commits on our main branch that AREN&rsquo;T pushed to
+the origin, we can have <code>git log</code> them like this:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git log --oneline --decorate HEAD ^origin/main</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bd5e9ea <span class="o">(</span>HEAD -&gt; main<span class="o">)</span> Updated main.go with greet <span class="k">function</span></span></span></code></pre></div></div>
+<p>So, if we think back to our rules about when you can safely change history, we
+satisfy the first and most important rule: <em>&ldquo;Changing history that hasn&rsquo;t been
+pushed yet is always fine.&rdquo;</em></p>
+<p>Now then, let&rsquo;s get to the point of this whole article&hellip;using <code>git reset</code>.</p>
+<p>In the following example, we want to reset our repository to the state it was at
+in the previous commit.<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git reset HEAD~1</span></span></code></pre></div></div>
+<p>But what about the files changed in this commit? What&rsquo;s going to happen to them
+when we <code>reset</code>?</p>
+<p>By default, git will perform a <code>--mixed</code> reset, meaning the file changes will be
+retained, but will be removed from the index (where files go when you <code>git add</code>
+them). The other options you could specify are <code>--soft</code> which keeps the changes
+in the index and <code>--hard</code>, which removes them from the index AND the working
+tree. With <code>git reset --hard</code>, the changes made in your commit will be completely
+erased.</p>
+<p>After the reset, the changes from the latest commit will be in the working tree,
+but not added to the index:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git diff</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-diff">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl"><span class="gh">diff --git a/main.go b/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gh">index a36de8e..ba963c4 100644
+</span></span></span><span class="line"><span class="cl"><span class="gh"></span><span class="gd">--- a/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+++ b/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span><span class="gu">@@ -2,6 +2,11 @@ package main
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span> 
+</span></span><span class="line"><span class="cl"> import &#34;fmt&#34;
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="gi">+func greet(name string) {
+</span></span></span><span class="line"><span class="cl"><span class="gi">+	   fmt.Printf(&#34;Hello, %s\n&#34;, name)
+</span></span></span><span class="line"><span class="cl"><span class="gi">+}
+</span></span></span><span class="line"><span class="cl"><span class="gi">+
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span> func main() {
+</span></span><span class="line"><span class="cl"><span class="gd">-	   fmt.Printf(&#34;hello world\n&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+	   // fmt.Printf(&#34;hello world\n&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="gi">+	   greet(&#34;Steve&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span> }
+</span></span></code></pre></div></div>
+<p>Now our latest commit is undone, but the file changes from it are present and
+unstaged. Let&rsquo;s delete our stray commented code and re-add and commit. <em>type
+type type&hellip;</em></p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git add main.go
+</span></span><span class="line"><span class="cl">git commit</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git log --oneline --decorate</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">8c38345 <span class="o">(</span>HEAD -&gt; main<span class="o">)</span> Add greet method
+</span></span><span class="line"><span class="cl">88b396a <span class="o">(</span>origin/main<span class="o">)</span> Initial main.go with a simple hello world</span></span></code></pre></div></div>
+<p>And as for the code in our latest commit:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git log --oneline --decorate --patch -n <span class="m">1</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-diff">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl">8c38345 (HEAD -&gt; main) Add greet method
+</span></span><span class="line"><span class="cl"><span class="gh">diff --git a/main.go b/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gh">index a36de8e..75bf4f4 100644
+</span></span></span><span class="line"><span class="cl"><span class="gh"></span><span class="gd">--- a/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+++ b/main.go
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span><span class="gu">@@ -2,6 +2,10 @@ package main
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span> 
+</span></span><span class="line"><span class="cl"> import &#34;fmt&#34;
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="gi">+func greet(name string) {
+</span></span></span><span class="line"><span class="cl"><span class="gi">+	   fmt.Printf(&#34;Hello, %s\n&#34;, name)
+</span></span></span><span class="line"><span class="cl"><span class="gi">+}
+</span></span></span><span class="line"><span class="cl"><span class="gi">+
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span> func main() {
+</span></span><span class="line"><span class="cl"><span class="gd">-	   fmt.Printf(&#34;hello world\n&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+	   greet(&#34;Steve&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span> }
+</span></span></code></pre></div></div>
+<p>Much better.</p>
+<p>Our commit has been fixed, and because this wasn&rsquo;t pushed to our remote before
+changing, no one has to know we carelessly committed code that shouldn&rsquo;t have
+been there. There is no history of that line in a previous commit and the fixup
+commit which resolves it. Our history has been kept clean, and our commits
+remain logical, self-contained, testable, and deployable. And because we caught
+our mistake before we pushed anything to our remote, there was no risk of
+changing history of code that others have already checked out.</p>
+<p>However, if you followed along with the steps, you may have noticed we needed to
+re-write the commit message after we reset it because that commit was blown
+away. That&rsquo;s fairly annoying especially if you spent significant effort in
+crafting a <a href="/posts/git_commit" rel="">good commit</a>. There is a shorthand way to work
+through the steps of this exact scenario of fixing code changed in the HEAD
+commit using <code>git commit --amend</code>. It&rsquo;s less flexible than <code>git reset</code>, but if
+that&rsquo;s all you need than it&rsquo;s very slick.</p>
+<p>Rewind our conversation to the point that we realized we needed to remove the
+errant commented out code. Simply make the edit by deleting that line of code,
+then add the change to the index with <code>git add</code>. Lastly run <code>git commit --amend</code>
+and the previous commit message will be opened up again. You can choose to
+change the wording if you like, but once you save, the HEAD commit will be
+altered with your added change all in one go. No reset required.</p>
+<blockquote>
+<p>[!WARNING]
+This method <em>still</em> changes history and the contents of your commit, meaning
+the rules to follow about when it&rsquo;s safe to change history still apply.</p>
+</blockquote>
+<p>If you need to make edits to commits earlier in the tree than the current one
+(the HEAD commit) than this solution (without any modifications) will not help
+you. To deal with that problem, stay tuned for the dedicated articles on
+<code>amend</code>, <code>fixup</code>, <code>autosquash</code>, and <code>interactive rebase</code>.</p>
+<p>That&rsquo;s all you need to know to get started with using <code>git reset</code>. You can go on
+your merry way resetting your commits.</p>
+<h2 id="additional-posts-in-this-series">Additional posts in this series</h2>
+<ul>
+<li><a href="/posts/git_commit" rel="">What makes a good commit</a></li>
+<li><a href="/posts/git_reset" rel="">git reset</a> <em>(this post)</em></li>
+<li>amend <em>coming soon</em></li>
+<li>fixup</li>
+<li>interactive rebase</li>
+<li>I&rsquo;ve made a time paradox, now what?</li>
+</ul>
+<h2 id="footnotes">Footnotes</h2>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://git-scm.com/docs/gitglossary#Documentation/gitglossary.txt-aiddefworkingtreeaworkingtree" target="_blank" rel="noopener noreffer ">https://git-scm.com/docs/gitglossary#Documentation/gitglossary.txt-aiddefworkingtreeaworkingtree</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>A <strong>pathspec</strong> is a way to restrict which files a git command should work
+on. The simplest form of a pathspec is a file or directory eg.
+<code>git add src/</code> or <code>git log README.md</code>. But there is more to pathspecs than
+just simple paths. A fuller dive into the intricacies will be reserved for a
+future article.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>A <strong>tree-ish</strong> is anything that points to a particular point in your
+repo&rsquo;s git history. A commit points directly to a particular point in the
+tree of your history. A tag can be dereferenced (following the tag to the
+thing it points to) to a commit (or the HEAD of a branch). Think of it as
+any object that points to a particular point in the tree of commits.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><code>HEAD</code> specifies the current tip of the history in git. This means the
+most recent commit. <code>~</code> signifies a <em>reverse</em> traversal, or going backward
+in time. Therefore, <code>HEAD~1</code> means: <em>the previous commit</em>.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2025-01-01</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="http://localhost:55042/posts/git_reset/" data-title="Git Reset" data-hashtags="how-to,git"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Threads" data-sharer="threads" data-url="http://localhost:55042/posts/git_reset/" data-title="Git Reset"><i class="fab fa-threads fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:55042/posts/git_reset/" data-hashtag="how-to"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:55042/posts/git_reset/" data-title="Git Reset"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://localhost:55042/posts/git_reset/" data-title="Git Reset"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://localhost:55042/posts/git_reset/" data-title="Git Reset"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Diaspora" data-sharer="diaspora" data-url="http://localhost:55042/posts/git_reset/" data-title="Git Reset" data-description=""><i class="fab fa-diaspora fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=http%3a%2f%2flocalhost%3a55042%2fposts%2fgit_reset%2f&amp;text=Git%20Reset" target="_blank" title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/how-to/">How-To</a>,&nbsp;<a href="/tags/git/">Git</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/zellij/" class="prev" rel="prev" title="Zellij"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Zellij</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.140.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">xxxx</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script>window.config={"comment":{}};</script><script src="/js/theme.min.js"></script></body>
+</html>
