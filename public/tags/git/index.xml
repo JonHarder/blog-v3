@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Git - Tag - My New Hugo Site</title>
-        <link>http://localhost:55042/tags/git/</link>
+        <link>http://localhost:55103/tags/git/</link>
         <description>Git - Tag - My New Hugo Site</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2025 15:40:00 -0600</lastBuildDate><atom:link href="http://localhost:55042/tags/git/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2025 15:40:00 -0600</lastBuildDate><atom:link href="http://localhost:55103/tags/git/" rel="self" type="application/rss+xml" /><item>
     <title>Git Reset</title>
-    <link>http://localhost:55042/posts/git_reset/</link>
+    <link>http://localhost:55103/posts/git_reset/</link>
     <pubDate>Wed, 01 Jan 2025 15:40:00 -0600</pubDate>
     <author>xxxx</author>
-    <guid>http://localhost:55042/posts/git_reset/</guid>
+    <guid>http://localhost:55103/posts/git_reset/</guid>
     <description><![CDATA[<h2 id="introduction">Introduction</h2>
 <p>The <a href="/posts/git_commit" rel="">last post</a> in our series on git discussed the structure
 and importance of git commits. Ideally, every commit you make would be clear,
@@ -20,10 +20,10 @@ maybe you notice a simple typo in the work you just committed.</p>]]></descripti
 </item>
 <item>
     <title>What Makes a Good Git Commit</title>
-    <link>http://localhost:55042/posts/git_commit/</link>
+    <link>http://localhost:55103/posts/git_commit/</link>
     <pubDate>Tue, 13 Aug 2024 16:00:00 -0600</pubDate>
     <author>xxxx</author>
-    <guid>http://localhost:55042/posts/git_commit/</guid>
+    <guid>http://localhost:55103/posts/git_commit/</guid>
     <description><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>I want to kick off this series of articles on git with the humble commit.
 Commits are the basic unit of change in your codebase. Like an atom, you cannot

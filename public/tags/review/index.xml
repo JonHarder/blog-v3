@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Review - Tag - My New Hugo Site</title>
-        <link>http://localhost:55042/tags/review/</link>
+        <link>http://localhost:55103/tags/review/</link>
         <description>Review - Tag - My New Hugo Site</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 19 Jan 2024 16:00:00 -0600</lastBuildDate><atom:link href="http://localhost:55042/tags/review/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 19 Jan 2024 16:00:00 -0600</lastBuildDate><atom:link href="http://localhost:55103/tags/review/" rel="self" type="application/rss+xml" /><item>
     <title>zoxide</title>
-    <link>http://localhost:55042/posts/zoxide/</link>
+    <link>http://localhost:55103/posts/zoxide/</link>
     <pubDate>Fri, 19 Jan 2024 16:00:00 -0600</pubDate>
     <author>xxxx</author>
-    <guid>http://localhost:55042/posts/zoxide/</guid>
+    <guid>http://localhost:55103/posts/zoxide/</guid>
     <description><![CDATA[<h1 id="overview">Overview</h1>
 <p><a href="https://github.com/ajeetdsouza/zoxide" target="_blank" rel="noopener noreffer ">Zoxide</a> is a small and focused
 command line tool that supercharges the
@@ -23,10 +23,10 @@ paths using arbitrary fragments of that path.</p>]]></description>
 </item>
 <item>
     <title>fzf</title>
-    <link>http://localhost:55042/posts/fzf/</link>
+    <link>http://localhost:55103/posts/fzf/</link>
     <pubDate>Thu, 14 Dec 2023 16:00:00 -0600</pubDate>
     <author>xxxx</author>
-    <guid>http://localhost:55042/posts/fzf/</guid>
+    <guid>http://localhost:55103/posts/fzf/</guid>
     <description><![CDATA[<h1 id="overview">Overview</h1>
 <p>Without any arguments or data piped from standard input
 <a href="https://github.com/junegunn/fzf" target="_blank" rel="noopener noreffer ">fzf</a> acts as a sort of interactive
@@ -40,10 +40,10 @@ match that term.</p>]]></description>
 </item>
 <item>
     <title>nb</title>
-    <link>http://localhost:55042/posts/nb/</link>
+    <link>http://localhost:55103/posts/nb/</link>
     <pubDate>Fri, 01 Dec 2023 16:00:00 -0600</pubDate>
     <author>xxxx</author>
-    <guid>http://localhost:55042/posts/nb/</guid>
+    <guid>http://localhost:55103/posts/nb/</guid>
     <description><![CDATA[<h1 id="overview">Overview</h1>
 <p><a href="https://xwmx.github.io/nb" target="_blank" rel="noopener noreffer ">nb</a> is a swiss army knife of a note taking tool
 operated entirely<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> in within the command line.</p>
@@ -56,10 +56,10 @@ the notes in your current notebook (more on <a href="#Notebooks" rel="">notebook
 </item>
 <item>
     <title>Vifm</title>
-    <link>http://localhost:55042/posts/vifm/</link>
+    <link>http://localhost:55103/posts/vifm/</link>
     <pubDate>Fri, 20 Oct 2023 16:00:00 -0600</pubDate>
     <author>xxxx</author>
-    <guid>http://localhost:55042/posts/vifm/</guid>
+    <guid>http://localhost:55103/posts/vifm/</guid>
     <description><![CDATA[<h2 id="introduction">Introduction</h2>
 <p>Vifm is the vi file manager. It uses dual window design reminiscient of midnight
 commander, but attempts to replicate vi keybindings as much as possible.</p>
@@ -73,10 +73,10 @@ correct key or command.</p>]]></description>
 </item>
 <item>
     <title>Midnight Commander</title>
-    <link>http://localhost:55042/posts/midnight_commander/</link>
+    <link>http://localhost:55103/posts/midnight_commander/</link>
     <pubDate>Fri, 13 Oct 2023 16:00:00 -0600</pubDate>
     <author>xxxx</author>
-    <guid>http://localhost:55042/posts/midnight_commander/</guid>
+    <guid>http://localhost:55103/posts/midnight_commander/</guid>
     <description><![CDATA[<h1 id="mc">mc</h1>
 <p>Let&rsquo;s start with a quick screenshot of mc in action.</p>
 <p></p>
@@ -88,10 +88,10 @@ text user interface almost exactly.</p>]]></description>
 </item>
 <item>
     <title>Ranger</title>
-    <link>http://localhost:55042/posts/ranger/</link>
+    <link>http://localhost:55103/posts/ranger/</link>
     <pubDate>Fri, 06 Oct 2023 16:00:00 -0600</pubDate>
     <author>xxxx</author>
-    <guid>http://localhost:55042/posts/ranger/</guid>
+    <guid>http://localhost:55103/posts/ranger/</guid>
     <description><![CDATA[<p><a href="https://ranger.github.io/" target="_blank" rel="noopener noreffer ">Ranger</a> is a &ldquo;console file manager with VI key
 bindings.&rdquo; Specifically it is a terminal file manager. You&rsquo;re most likely
 familiar with GUI file managers in the form of mac's finder, or the directrory

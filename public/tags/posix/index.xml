@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Posix - Tag - My New Hugo Site</title>
-        <link>http://localhost:55042/tags/posix/</link>
+        <link>http://localhost:55103/tags/posix/</link>
         <description>Posix - Tag - My New Hugo Site</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 22 Dec 2023 16:00:00 -0600</lastBuildDate><atom:link href="http://localhost:55042/tags/posix/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 22 Dec 2023 16:00:00 -0600</lastBuildDate><atom:link href="http://localhost:55103/tags/posix/" rel="self" type="application/rss+xml" /><item>
     <title>Intro to Bash Scripting</title>
-    <link>http://localhost:55042/posts/intro_to_bash_scripting/</link>
+    <link>http://localhost:55103/posts/intro_to_bash_scripting/</link>
     <pubDate>Fri, 22 Dec 2023 16:00:00 -0600</pubDate>
     <author>xxxx</author>
-    <guid>http://localhost:55042/posts/intro_to_bash_scripting/</guid>
+    <guid>http://localhost:55103/posts/intro_to_bash_scripting/</guid>
     <description><![CDATA[<h1 id="overview">Overview</h1>
 <p>Bash is a (perhaps <em>the</em> ubiquitous) shell. As a member of the POSIX
 interface, bash provides a consistent access point to applications on
@@ -23,10 +23,10 @@ line</em> interface, running your chosen <em>shell</em>.</p>]]></description>
 </item>
 <item>
     <title>sed (part 2)</title>
-    <link>http://localhost:55042/posts/sed_part_2/</link>
+    <link>http://localhost:55103/posts/sed_part_2/</link>
     <pubDate>Fri, 17 Nov 2023 16:00:00 -0600</pubDate>
     <author>xxxx</author>
-    <guid>http://localhost:55042/posts/sed_part_2/</guid>
+    <guid>http://localhost:55103/posts/sed_part_2/</guid>
     <description><![CDATA[<h2 id="overview">overview</h2>
 <p><a href="/posts/sed" rel="">last</a> time we discussed the command line utility, <code>sed</code>. as a
 stream editor, <code>sed</code> provides a programmatic way to edit files or streams of
@@ -38,10 +38,10 @@ cases when viewing parts of files or trimming and cleaning up data.</p>]]></desc
 </item>
 <item>
     <title>Sed (Part 1)</title>
-    <link>http://localhost:55042/posts/sed/</link>
+    <link>http://localhost:55103/posts/sed/</link>
     <pubDate>Fri, 10 Nov 2023 16:00:00 -0600</pubDate>
     <author>xxxx</author>
-    <guid>http://localhost:55042/posts/sed/</guid>
+    <guid>http://localhost:55103/posts/sed/</guid>
     <description><![CDATA[<h2 id="overview">Overview</h2>
 <p><a href="https://man7.org/linux/man-pages/man1/sed.1.html" target="_blank" rel="noopener noreffer ">Sed</a> stands for (s)tream
 (ed)itor and is useful for taking any input you have and modifying it in some
@@ -55,10 +55,10 @@ command to find and replace some search term.</p>]]></description>
 </item>
 <item>
     <title>Find</title>
-    <link>http://localhost:55042/posts/find/</link>
+    <link>http://localhost:55103/posts/find/</link>
     <pubDate>Fri, 03 Nov 2023 16:00:00 -0600</pubDate>
     <author>xxxx</author>
-    <guid>http://localhost:55042/posts/find/</guid>
+    <guid>http://localhost:55103/posts/find/</guid>
     <description><![CDATA[<h2 id="overview">Overview</h2>
 <p><a href="https://man7.org/linux/man-pages/man1/find.1.html" target="_blank" rel="noopener noreffer ">Find</a> is a utility to <em>find</em>
 files on your computer given a wide range of search parameters. It will
@@ -73,10 +73,10 @@ etc.).</p>]]></description>
 </item>
 <item>
     <title>Grep</title>
-    <link>http://localhost:55042/posts/grep/</link>
+    <link>http://localhost:55103/posts/grep/</link>
     <pubDate>Fri, 27 Oct 2023 16:00:00 -0600</pubDate>
     <author>xxxx</author>
-    <guid>http://localhost:55042/posts/grep/</guid>
+    <guid>http://localhost:55103/posts/grep/</guid>
     <description><![CDATA[<h2 id="overview">Overview</h2>
 <p>Grep is a fundamental part of the command line toolbelt. True to the
 <a href="https://en.wikipedia.org/wiki/Unix_philosophy" target="_blank" rel="noopener noreffer ">Unix philosophy</a>, grep does one

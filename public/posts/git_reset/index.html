@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=55042&amp;path=livereload" data-no-instant defer></script>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=55103&amp;path=livereload" data-no-instant defer></script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Git Reset - My New Hugo Site</title><meta name="Description" content="This is my cool site"><meta property="og:url" content="http://localhost:55042/posts/git_reset/">
+        <title>Git Reset - My New Hugo Site</title><meta name="Description" content="This is my cool site"><meta property="og:url" content="http://localhost:55103/posts/git_reset/">
   <meta property="og:site_name" content="My New Hugo Site">
   <meta property="og:title" content="Git Reset">
-  <meta property="og:description" content="Introduction [!NOTIFY] This is a test
-The last post in our series on git discussed the structure and importance of git commits. Ideally, every commit you make would be clear, concise, small, logical, and self-contained. Unfortunately, reality rarely allows us to know ahead of time what exactly will end up becoming a perfect commit. You may commit the first step in your feature, and come to realize while you are working on the next step that your first commit is not quite right. Or maybe you notice a simple typo in the work you just committed.">
+  <meta property="og:description" content="Introduction The last post in our series on git discussed the structure and importance of git commits. Ideally, every commit you make would be clear, concise, small, logical, and self-contained. Unfortunately, reality rarely allows us to know ahead of time what exactly will end up becoming a perfect commit. You may commit the first step in your feature, and come to realize while you are working on the next step that your first commit is not quite right. Or maybe you notice a simple typo in the work you just committed.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -19,13 +18,12 @@ The last post in our series on git discussed the structure and importance of git
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Git Reset">
-  <meta name="twitter:description" content="Introduction [!NOTIFY] This is a test
-The last post in our series on git discussed the structure and importance of git commits. Ideally, every commit you make would be clear, concise, small, logical, and self-contained. Unfortunately, reality rarely allows us to know ahead of time what exactly will end up becoming a perfect commit. You may commit the first step in your feature, and come to realize while you are working on the next step that your first commit is not quite right. Or maybe you notice a simple typo in the work you just committed.">
+  <meta name="twitter:description" content="Introduction The last post in our series on git discussed the structure and importance of git commits. Ideally, every commit you make would be clear, concise, small, logical, and self-contained. Unfortunately, reality rarely allows us to know ahead of time what exactly will end up becoming a perfect commit. You may commit the first step in your feature, and come to realize while you are working on the next step that your first commit is not quite right. Or maybe you notice a simple typo in the work you just committed.">
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site">
 <meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:55042/posts/git_reset/" /><link rel="prev" href="http://localhost:55042/posts/zellij/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:55103/posts/git_reset/" /><link rel="prev" href="http://localhost:55103/posts/zellij/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -35,9 +33,9 @@ The last post in our series on git discussed the structure and importance of git
         "inLanguage": "en-us",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "http:\/\/localhost:55042\/posts\/git_reset\/"
-        },"genre": "posts","keywords": "how-to, git","wordcount":  2445 ,
-        "url": "http:\/\/localhost:55042\/posts\/git_reset\/","datePublished": "2025-01-01T15:40:00-06:00","dateModified": "2025-01-01T15:40:00-06:00","publisher": {
+            "@id": "http:\/\/localhost:55103\/posts\/git_reset\/"
+        },"genre": "posts","keywords": "how-to, git","wordcount":  2440 ,
+        "url": "http:\/\/localhost:55103\/posts\/git_reset\/","datePublished": "2025-01-01T15:40:00-06:00","dateModified": "2025-01-01T15:40:00-06:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -78,7 +76,7 @@ The last post in our series on git discussed the structure and importance of git
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Git Reset</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>xxxx</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-01-01">2025-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2445 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-01-01">2025-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2440 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;12 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -100,10 +98,6 @@ The last post in our series on git discussed the structure and importance of git
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
-<blockquote>
-<p>[!NOTIFY]
-This is a test</p>
-</blockquote>
 <p>The <a href="/posts/git_commit" rel="">last post</a> in our series on git discussed the structure
 and importance of git commits. Ideally, every commit you make would be clear,
 concise, small, logical, and self-contained. Unfortunately, reality rarely
@@ -552,12 +546,17 @@ then add the change to the index with <code>git add</code>. Lastly run <code>git
 and the previous commit message will be opened up again. You can choose to
 change the wording if you like, but once you save, the HEAD commit will be
 altered with your added change all in one go. No reset required.</p>
-<blockquote>
-<p>[!WARNING]
-This method <em>still</em> changes history and the contents of your commit, meaning
+
+          <link rel="stylesheet" href="/css/vendors/admonitions.css">
+    <div class="admonition warning">
+      <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480L40 480c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
+        <span>Warning</span>
+      </div>
+      <div class="admonition-content">
+        <p>This method <em>still</em> changes history and the contents of your commit, meaning
 the rules to follow about when it&rsquo;s safe to change history still apply.</p>
-</blockquote>
-<p>If you need to make edits to commits earlier in the tree than the current one
+      </div>
+    </div><p>If you need to make edits to commits earlier in the tree than the current one
 (the HEAD commit) than this solution (without any modifications) will not help
 you. To deal with that problem, stay tuned for the dedicated articles on
 <code>amend</code>, <code>fixup</code>, <code>autosquash</code>, and <code>interactive rebase</code>.</p>
@@ -609,7 +608,7 @@ in time. Therefore, <code>HEAD~1</code> means: <em>the previous commit</em>.&#16
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="http://localhost:55042/posts/git_reset/" data-title="Git Reset" data-hashtags="how-to,git"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Threads" data-sharer="threads" data-url="http://localhost:55042/posts/git_reset/" data-title="Git Reset"><i class="fab fa-threads fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:55042/posts/git_reset/" data-hashtag="how-to"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:55042/posts/git_reset/" data-title="Git Reset"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://localhost:55042/posts/git_reset/" data-title="Git Reset"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://localhost:55042/posts/git_reset/" data-title="Git Reset"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Diaspora" data-sharer="diaspora" data-url="http://localhost:55042/posts/git_reset/" data-title="Git Reset" data-description=""><i class="fab fa-diaspora fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=http%3a%2f%2flocalhost%3a55042%2fposts%2fgit_reset%2f&amp;text=Git%20Reset" target="_blank" title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="http://localhost:55103/posts/git_reset/" data-title="Git Reset" data-hashtags="how-to,git"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Threads" data-sharer="threads" data-url="http://localhost:55103/posts/git_reset/" data-title="Git Reset"><i class="fab fa-threads fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:55103/posts/git_reset/" data-hashtag="how-to"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:55103/posts/git_reset/" data-title="Git Reset"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://localhost:55103/posts/git_reset/" data-title="Git Reset"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://localhost:55103/posts/git_reset/" data-title="Git Reset"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Diaspora" data-sharer="diaspora" data-url="http://localhost:55103/posts/git_reset/" data-title="Git Reset" data-description=""><i class="fab fa-diaspora fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=http%3a%2f%2flocalhost%3a55103%2fposts%2fgit_reset%2f&amp;text=Git%20Reset" target="_blank" title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>

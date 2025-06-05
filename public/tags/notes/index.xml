@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Notes - Tag - My New Hugo Site</title>
-        <link>http://localhost:55042/tags/notes/</link>
+        <link>http://localhost:55103/tags/notes/</link>
         <description>Notes - Tag - My New Hugo Site</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 01 Dec 2023 16:00:00 -0600</lastBuildDate><atom:link href="http://localhost:55042/tags/notes/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 01 Dec 2023 16:00:00 -0600</lastBuildDate><atom:link href="http://localhost:55103/tags/notes/" rel="self" type="application/rss+xml" /><item>
     <title>nb</title>
-    <link>http://localhost:55042/posts/nb/</link>
+    <link>http://localhost:55103/posts/nb/</link>
     <pubDate>Fri, 01 Dec 2023 16:00:00 -0600</pubDate>
     <author>xxxx</author>
-    <guid>http://localhost:55042/posts/nb/</guid>
+    <guid>http://localhost:55103/posts/nb/</guid>
     <description><![CDATA[<h1 id="overview">Overview</h1>
 <p><a href="https://xwmx.github.io/nb" target="_blank" rel="noopener noreffer ">nb</a> is a swiss army knife of a note taking tool
 operated entirely<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> in within the command line.</p>

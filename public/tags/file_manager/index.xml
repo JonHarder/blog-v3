@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>File_manager - Tag - My New Hugo Site</title>
-        <link>http://localhost:55042/tags/file_manager/</link>
+        <link>http://localhost:55103/tags/file_manager/</link>
         <description>File_manager - Tag - My New Hugo Site</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 20 Oct 2023 16:00:00 -0600</lastBuildDate><atom:link href="http://localhost:55042/tags/file_manager/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 20 Oct 2023 16:00:00 -0600</lastBuildDate><atom:link href="http://localhost:55103/tags/file_manager/" rel="self" type="application/rss+xml" /><item>
     <title>Vifm</title>
-    <link>http://localhost:55042/posts/vifm/</link>
+    <link>http://localhost:55103/posts/vifm/</link>
     <pubDate>Fri, 20 Oct 2023 16:00:00 -0600</pubDate>
     <author>xxxx</author>
-    <guid>http://localhost:55042/posts/vifm/</guid>
+    <guid>http://localhost:55103/posts/vifm/</guid>
     <description><![CDATA[<h2 id="introduction">Introduction</h2>
 <p>Vifm is the vi file manager. It uses dual window design reminiscient of midnight
 commander, but attempts to replicate vi keybindings as much as possible.</p>
@@ -22,10 +22,10 @@ correct key or command.</p>]]></description>
 </item>
 <item>
     <title>Midnight Commander</title>
-    <link>http://localhost:55042/posts/midnight_commander/</link>
+    <link>http://localhost:55103/posts/midnight_commander/</link>
     <pubDate>Fri, 13 Oct 2023 16:00:00 -0600</pubDate>
     <author>xxxx</author>
-    <guid>http://localhost:55042/posts/midnight_commander/</guid>
+    <guid>http://localhost:55103/posts/midnight_commander/</guid>
     <description><![CDATA[<h1 id="mc">mc</h1>
 <p>Let&rsquo;s start with a quick screenshot of mc in action.</p>
 <p></p>
@@ -37,10 +37,10 @@ text user interface almost exactly.</p>]]></description>
 </item>
 <item>
     <title>Ranger</title>
-    <link>http://localhost:55042/posts/ranger/</link>
+    <link>http://localhost:55103/posts/ranger/</link>
     <pubDate>Fri, 06 Oct 2023 16:00:00 -0600</pubDate>
     <author>xxxx</author>
-    <guid>http://localhost:55042/posts/ranger/</guid>
+    <guid>http://localhost:55103/posts/ranger/</guid>
     <description><![CDATA[<p><a href="https://ranger.github.io/" target="_blank" rel="noopener noreffer ">Ranger</a> is a &ldquo;console file manager with VI key
 bindings.&rdquo; Specifically it is a terminal file manager. You&rsquo;re most likely
 familiar with GUI file managers in the form of mac's finder, or the directrory
