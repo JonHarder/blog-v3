@@ -1,7 +1,24 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Terminal Toolbelt'
 theme = ["hugo-admonitions", "LoveIt"]
+
+[params]
+defaultTheme = "auto"
+
+[params.author]
+  name = "Jon Harder"
+  email = "jonharder6@gmail.com"
+  link = "https://github.com/JonHarder"
+
+[params.header.title]
+  name = "Terminal Toolbelt"
+
+[params.home.profile]
+subtitle = "$ building your toolbelt; one command at a time"
+
+[params.page.share]
+enable = false
 
 [menu]
   [[menu.main]]
