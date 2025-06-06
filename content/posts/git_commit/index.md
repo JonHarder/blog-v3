@@ -205,6 +205,16 @@ In future articles of this git series, we will discuss editing git commit
 history as well as when you should make use of this feature and even more
 importantly, when you **shouldn't** use this feature.
 
+## Additional posts in this series
+
+- [What makes a good commit](/posts/git_commit) _(this post)_
+- [git reset](/posts/git_reset)
+- [amend](/posts/git_amend)
+- fixup
+- interactive rebase
+- I've made a time paradox, now what?
+
+
 ## Sources
 
 - Much of what is endorsed here comes from Drew DePonte in this

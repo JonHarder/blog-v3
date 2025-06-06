@@ -1,10 +1,12 @@
 +++
-date = '2025-01-23T14:57:00-06:00'
+date = '2025-07-30T14:57:00-06:00'
 draft = true
 title = 'Git Fixup'
 show_reading_time = true
 tags = ['how-to', 'git', 'fixup', 'reword', 'amend']
 +++
+
+TODO: update date frontmatter
 
 ## Introduction
 

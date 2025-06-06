@@ -5,6 +5,7 @@ theme = ["hugo-admonitions", "LoveIt"]
 
 [params]
 defaultTheme = "auto"
+Toc = true
 
 [params.author]
   name = "Jon Harder"
