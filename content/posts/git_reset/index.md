@@ -137,7 +137,7 @@ commit and apply it on top of the current index.
 git reset 88b396a main.go
 ```
 
-```bash
+```
 Unstaged changes after reset:
 M       main.go
 ```
@@ -148,7 +148,7 @@ Let's see what it did, starting with a simple `git status`
 git status
 ```
 
-```bash
+```
 On branch main
 Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
@@ -321,7 +321,7 @@ the origin, we can have `git log` them like this:
 git log --oneline --decorate HEAD ^origin/main
 ```
 
-```bash
+```
 bd5e9ea (HEAD -> main) Updated main.go with greet function
 ```
 
@@ -390,7 +390,7 @@ git commit
 git log --oneline --decorate
 ```
 
-```bash
+```
 8c38345 (HEAD -> main) Add greet method
 88b396a (origin/main) Initial main.go with a simple hello world
 ```
