@@ -103,6 +103,6 @@ the HEAD commit message will reflect your modifications.
 - [What makes a good commit](/posts/git_commit)
 - [git reset](/posts/git_reset)
 - [amend](/posts/git_amend) _(this post)_
-- fixup
+- [fixup](/posts/git_fixup)
 - interactive rebase
 - I've made a time paradox, now what?

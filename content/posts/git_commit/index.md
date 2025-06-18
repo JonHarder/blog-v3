@@ -210,7 +210,7 @@ importantly, when you **shouldn't** use this feature.
 - [What makes a good commit](/posts/git_commit) _(this post)_
 - [git reset](/posts/git_reset)
 - [amend](/posts/git_amend)
-- fixup
+- [fixup](/posts/git_fixup)
 - interactive rebase
 - I've made a time paradox, now what?
 

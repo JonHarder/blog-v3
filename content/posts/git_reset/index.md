@@ -463,7 +463,7 @@ your merry way resetting your commits.
 - [What makes a good commit](/posts/git_commit)
 - [git reset](/posts/git_reset) _(this post)_
 - [amend](/posts/git_amend)
-- fixup
+- [fixup](/posts/git_fixup)
 - interactive rebase
 - I've made a time paradox, now what?
 
